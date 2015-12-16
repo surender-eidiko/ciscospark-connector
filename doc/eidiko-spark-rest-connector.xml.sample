@@ -1,0 +1,6 @@
+<!-- BEGIN_INCLUDE(eidiko-spark-rest:greet) -->
+    <eidiko-spark-rest:greet config-ref="" friend="#[map-payload:friend]" />
+<!-- END_INCLUDE(eidiko-spark-rest:greet) -->
+<!-- BEGIN_INCLUDE(eidiko-spark-rest:add-entity) -->
+    <eidiko-spark-rest:add-entity config-ref="" key="id1"/>
+<!-- END_INCLUDE(eidiko-spark-rest:add-entity) -->

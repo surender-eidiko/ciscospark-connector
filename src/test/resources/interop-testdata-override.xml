@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<connector name="CiscoSpark">
+    <properties>
+        <connectivity-support>false</connectivity-support>
+        <OAuth-authentication>false</OAuth-authentication>
+        <metadata>static</metadata>
+        <datasense-enabled>true</datasense-enabled>
+        <transformer>false</transformer>
+    </properties>
+    <global-config credentialsFile="">
+        <config name="config">
+            <attributes>
+                <attribute name="name" use="required" caption="Name" group="Basic Settings" type="name" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </config>
+    </global-config>
+    <message-processors>
+        <processor name="getApplicationList" xmlName="get-application-list" caption="Get application list">
+            <properties>
+                <datamapper input="ApplicationGetResponse" output="Boolean"/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements/>
+        </processor>
+        <processor name="registerApplication" xmlName="register-application" caption="Register application">
+            <properties>
+                <datamapper input="ApplicationPostResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements>
+                <childElement name="application-post-request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" base="application-post-request" category="General"></attribute>
+<attribute name="description" use="optional" caption="Description" type="string" javaType="java.lang.String" base="application-post-request" category="General"></attribute>
+<attribute name="logo" use="optional" caption="Logo" type="string" javaType="java.lang.String" base="application-post-request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements>
+                        <childElement name="keywords" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" base="application-post-request" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="keyword" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes/>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                        <childElement name="contact-emails" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" base="application-post-request" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="contact-email" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes/>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                        <childElement name="redirect-urls" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" base="application-post-request" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="redirect-url" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes/>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                        <childElement name="scopes" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" base="application-post-request" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="scope" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes/>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Application Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                    </childElements>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="getApplicationById" xmlName="get-application-by-id" caption="Get application by id">
+            <properties>
+                <datamapper input="ApplicationIdGetResponse" output="Boolean"/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="applicationId" use="required" caption="Application Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="updateApplicationById" xmlName="update-application-by-id" caption="Update application by id">
+            <properties>
+                <datamapper input="ApplicationIdPutResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="applicationId" use="required" caption="Application Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="update-application" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="key" use="optional" type="" javaType="" base="update-application" category="General"></attribute>
+<attribute name="description" use="optional" caption="Description" type="string" javaType="java.lang.String" base="update-application" category="General"></attribute>
+<attribute name="logo" use="optional" caption="Logo" type="string" javaType="java.lang.String" base="update-application" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements>
+                        <childElement name="keywords" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="keyword" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes/>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                        <childElement name="contact-emails" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="contact-email" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes/>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                        <childElement name="redirect-urls" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="redirect-url" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes/>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                        <childElement name="scopes" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="scope" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes/>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                        <childElement name="additional-properties" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="key" use="optional" type="" javaType="" base="update-application" category="General"></attribute>
+        <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="additional-property" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="key" use="optional" type="" javaType="" base="update-application" category="General"></attribute>
+            </attributes>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Update Application Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                    </childElements>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteApplicationById" xmlName="delete-application-by-id" caption="Delete application by id">
+            <properties>
+                <datamapper input="StatusResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="applicationId" use="required" caption="Application Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getMemberships" xmlName="get-memberships" caption="Get memberships">
+            <properties>
+                <datamapper input="MembershipsGetResponse" output="Integer"/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements/>
+        </processor>
+        <processor name="addMemberToRoom" xmlName="add-member-to-room" caption="Add member to room">
+            <properties>
+                <datamapper input="MembershipsPostResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements>
+                <childElement name="memberships-post-request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="roomId" use="optional" caption="Room Id" type="string" javaType="java.lang.String" base="memberships-post-request" category="General"></attribute>
+<attribute name="personId" use="optional" caption="Person Id" type="string" javaType="java.lang.String" base="memberships-post-request" category="General"></attribute>
+<attribute name="personEmail" use="optional" caption="Person Email" type="string" javaType="java.lang.String" base="memberships-post-request" category="General"></attribute>
+<attribute name="isModerator" use="optional" caption="Is Moderator" type="boolean" javaType="java.lang.Boolean" base="memberships-post-request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Memberships Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="getMembershipById" xmlName="get-membership-by-id" caption="Get membership by id">
+            <properties>
+                <datamapper input="MembershipsIdGetResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="membershipId" use="required" caption="Membership Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="updateMembershipById" xmlName="update-membership-by-id" caption="Update membership by id">
+            <properties>
+                <datamapper input="MembershipsIdPutResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="membershipId" use="required" caption="Membership Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="memberships-id-put-request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="id" use="optional" caption="Id" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="roomId" use="optional" caption="Room Id" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="personId" use="optional" caption="Person Id" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="personEmail" use="optional" caption="Person Email" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="isModerator" use="optional" caption="Is Moderator" type="boolean" javaType="boolean" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="isMonitor" use="optional" caption="Is Monitor" type="boolean" javaType="boolean" base="memberships-id-put-request" category="General"></attribute>
+<attribute name="created" use="optional" caption="Created" type="string" javaType="java.lang.String" base="memberships-id-put-request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Memberships Id Put Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteMembershipById" xmlName="delete-membership-by-id" caption="Delete membership by id">
+            <properties>
+                <datamapper input="StatusResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="membershipId" use="required" caption="Membership Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getMessages" xmlName="get-messages" caption="Get messages">
+            <properties>
+                <datamapper input="MessagesGetResponse" output="Integer"/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="roomId" use="required" caption="Room Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="postMessages" xmlName="post-messages" caption="Post messages">
+            <properties>
+                <datamapper input="MessagesPostResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements>
+                <childElement name="messages-post-request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="roomId" use="optional" caption="Room Id" type="string" javaType="java.lang.String" base="messages-post-request" category="General"></attribute>
+<attribute name="text" use="optional" caption="Text" type="string" javaType="java.lang.String" base="messages-post-request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Messages Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements>
+                        <childElement name="files" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Messages Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Messages Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="file" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes/>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Messages Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                    </childElements>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="getMessagesById" xmlName="get-messages-by-id" caption="Get messages by id">
+            <properties>
+                <datamapper input="MessagesIdGetResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="messageId" use="required" caption="Message Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="deleteMessagesById" xmlName="delete-messages-by-id" caption="Delete messages by id">
+            <properties>
+                <datamapper input="StatusResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="messageId" use="required" caption="Message Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getPeople" xmlName="get-people" caption="Get people">
+            <properties>
+                <datamapper input="PeopleGetResponse" output="Integer"/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements/>
+        </processor>
+        <processor name="getPeopleById" xmlName="get-people-by-id" caption="Get people by id">
+            <properties>
+                <datamapper input="PeopleIdGetResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="uid" use="required" caption="Uid" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getRooms" xmlName="get-rooms" caption="Get rooms">
+            <properties>
+                <datamapper input="RoomsGetResponse" output="Boolean"/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements/>
+        </processor>
+        <processor name="createRooms" xmlName="create-rooms" caption="Create rooms">
+            <properties>
+                <datamapper input="RoomsPostResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements>
+                <childElement name="rooms-post-request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="title" use="optional" caption="Title" type="string" javaType="java.lang.String" base="rooms-post-request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Rooms Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements>
+                        <childElement name="members" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Rooms Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Rooms Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="member" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes/>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Rooms Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                    </childElements>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="getRoomById" xmlName="get-room-by-id" caption="Get room by id">
+            <properties>
+                <datamapper input="RoomsIdGetResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="roomId" use="required" caption="Room Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="updateRoomById" xmlName="update-room-by-id" caption="Update room by id">
+            <properties>
+                <datamapper input="RoomsIdPutResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="roomId" use="required" caption="Room Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="rooms-id-put-request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="title" use="optional" caption="Title" type="string" javaType="java.lang.String" base="rooms-id-put-request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Rooms Id Put Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteRoomById" xmlName="delete-room-by-id" caption="Delete room by id">
+            <properties>
+                <datamapper input="StatusResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="roomId" use="required" caption="Room Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getSubscriptions" xmlName="get-subscriptions" caption="Get subscriptions">
+            <properties>
+                <datamapper input="SubscriptionsGetResponse" output="Integer"/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="personId" use="required" caption="Person Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getSubscriptionsById" xmlName="get-subscriptions-by-id" caption="Get subscriptions by id">
+            <properties>
+                <datamapper input="SubscriptionsIdGetResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="subscriptionId" use="required" caption="Subscription Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="deleteSubscriptionsById" xmlName="delete-subscriptions-by-id" caption="Delete subscriptions by id">
+            <properties>
+                <datamapper input="StatusResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="subscriptionId" use="required" caption="Subscription Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getWebHooks" xmlName="get-web-hooks" caption="Get web hooks">
+            <properties>
+                <datamapper input="WebhooksGetResponse" output="Integer"/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements/>
+        </processor>
+        <processor name="postWebHooks" xmlName="post-web-hooks" caption="Post web hooks">
+            <properties>
+                <datamapper input="WebhooksPostResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements>
+                <childElement name="webhooks-post-request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="resource" use="optional" caption="Resource" type="string" javaType="java.lang.String" base="webhooks-post-request" category="General"></attribute>
+<attribute name="event" use="optional" caption="Event" type="string" javaType="java.lang.String" base="webhooks-post-request" category="General"></attribute>
+<attribute name="filter" use="optional" caption="Filter" type="string" javaType="java.lang.String" base="webhooks-post-request" category="General"></attribute>
+<attribute name="targetUrl" use="optional" caption="Target Url" type="string" javaType="java.lang.String" base="webhooks-post-request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Webhooks Post Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="getWebHooksById" xmlName="get-web-hooks-by-id" caption="Get web hooks by id">
+            <properties>
+                <datamapper input="WebhooksIdGetResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="webHookUID" use="required" caption="Web Hook U I D" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="updateWebHooksById" xmlName="update-web-hooks-by-id" caption="Update web hooks by id">
+            <properties>
+                <datamapper input="WebhooksIdPutResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="webHookUID" use="required" caption="Web Hook U I D" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="webhooks-id-put-request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="targetUrl" use="optional" caption="Target Url" type="string" javaType="java.lang.String" base="webhooks-id-put-request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Webhooks Id Put Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteWebHooksById" xmlName="delete-web-hooks-by-id" caption="Delete web hooks by id">
+            <properties>
+                <datamapper input="StatusResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="webHookUID" use="required" caption="Web Hook U I D" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="addEntity" xmlName="add-entity" caption="Add entity">
+            <properties>
+                <datamapper input="Map" output="Map"/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="key" use="required" caption="Key" group="General" type="type-chooser" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+    </message-processors>
+</connector>
