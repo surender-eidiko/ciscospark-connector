@@ -1,3 +1,6 @@
+/**
+ * Copyright � 1992-2016 Cisco, Inc.
+ */
 //-----------------------------------org.mule.modules.eidikosparkrest.bean.ApplicationGetResponse.java-----------------------------------
 
 package org.mule.modules.spark.bean;

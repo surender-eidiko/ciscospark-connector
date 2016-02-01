@@ -1,3 +1,6 @@
+/**
+ * Copyright � 1992-2016 Cisco, Inc.
+ */
 package org.mule.modules.spark;
 
 import java.lang.reflect.Constructor;
@@ -50,6 +53,7 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 
+
 public class SparkClient {
 
   private Client client;
@@ -72,7 +76,7 @@ public class SparkClient {
   public ApplicationGetResponse getApplicationList(
     Boolean showSubscriptionCount, Integer maxLimit) {
     WebResource webResource = getApiResource().path("applications");
-    MultivaluedMap queryParams = new MultivaluedMapImpl();
+    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     if (showSubscriptionCount != null) {
       queryParams.add("showSubscriptionCount",
         String.valueOf(showSubscriptionCount));
@@ -98,7 +102,7 @@ public class SparkClient {
     WebResource webResource = getApiResource().path("applications").path(
       applicationId);
     if (showSubscriptionCount != null) {
-      MultivaluedMap queryParams = new MultivaluedMapImpl();
+      MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
       queryParams.add("showSubscriptionCount",
         String.valueOf(showSubscriptionCount));
       webResource = webResource.queryParams(queryParams);
@@ -125,7 +129,7 @@ public class SparkClient {
   public MembershipsGetResponse getMemberships(String roomId,
     String personId, String personEmail, Integer maxLimit) {
     WebResource webResource = getApiResource().path("memberships");
-    MultivaluedMap queryParams = new MultivaluedMapImpl();
+    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     if (roomId != null) {
       queryParams.add("roomId", roomId);
     }
@@ -174,7 +178,7 @@ public class SparkClient {
   public MessagesGetResponse getMessages(String roomId, String before,
     String beforeMessage, Integer maxLimit) {
     WebResource webResource = getApiResource().path("messages");
-    MultivaluedMap queryParams = new MultivaluedMapImpl();
+    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     queryParams.add("roomId", roomId);
     if (before != null) {
       queryParams.add("before", before);
@@ -213,7 +217,7 @@ public class SparkClient {
   public PeopleGetResponse getPeople(String email, String displayName,
     Integer maxLimit) {
     WebResource webResource = getApiResource().path("people");
-    MultivaluedMap queryParams = new MultivaluedMapImpl();
+    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     if (email != null) {
       queryParams.add("email", email);
     }
@@ -235,7 +239,7 @@ public class SparkClient {
 
   public RoomsGetResponse getRooms(Boolean showSipAddress, Integer maxLimit) {
     WebResource webResource = getApiResource().path("rooms");
-    MultivaluedMap queryParams = new MultivaluedMapImpl();
+    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     if (showSipAddress != null) {
       queryParams.add("showSipAddress", String.valueOf(showSipAddress));
     }
@@ -274,7 +278,7 @@ public class SparkClient {
   public SubscriptionsGetResponse getSubscriptions(String personId,
     Integer maxLimit) {
     WebResource webResource = getApiResource().path("subscriptions");
-    MultivaluedMap queryParams = new MultivaluedMapImpl();
+    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     queryParams.add("Person ID", personId);
     if (maxLimit != null) {
       queryParams.add("max", String.valueOf(maxLimit));
@@ -299,7 +303,7 @@ public class SparkClient {
 
   public WebhooksGetResponse getWebHooks(Integer maxLimit) {
     WebResource webResource = getApiResource().path("webhooks");
-    MultivaluedMap queryParams = new MultivaluedMapImpl();
+    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     if (maxLimit != null) {
       queryParams.add("max", String.valueOf(maxLimit));
     }
@@ -336,7 +340,7 @@ public class SparkClient {
     return (StatusResponse) deleteData(webResource);
   }
 
-  private Object getData(WebResource webResource, Class returnClass) {
+  private Object getData(WebResource webResource, Class<?> returnClass) {
 
     WebResource.Builder builder = addHeader(webResource);
 
@@ -345,7 +349,7 @@ public class SparkClient {
   }
 
   private Object postData(Object request, WebResource webResource,
-    Class returnClass) {
+    Class<?> returnClass) {
     WebResource.Builder builder = addHeader(webResource);
     builder.type(MediaType.APPLICATION_JSON);
     ObjectMapper mapper = new ObjectMapper();
@@ -356,7 +360,7 @@ public class SparkClient {
   }
 
   private Object putData(Object request, WebResource webResource,
-    Class returnClass) {
+    Class<?> returnClass) {
     WebResource.Builder builder = addHeader(webResource);
     builder.type(MediaType.APPLICATION_JSON);
     ObjectMapper mapper = new ObjectMapper();
@@ -390,7 +394,7 @@ public class SparkClient {
     return statusResponse;
   }
 
-  private Object buildResponseObject(Class returnClass,
+  private Object buildResponseObject(Class<?> returnClass,
     ClientResponse clientResponse) {
     StatusResponse statusResponse = null;
     if (clientResponse.getStatus() == 200) {
@@ -398,7 +402,7 @@ public class SparkClient {
         .getEntity(returnClass);
       statusResponse.setStatusCode("200");
     } else {
-      System.out.println(clientResponse.getStatus());
+     
       String strResponse = clientResponse.getEntity(String.class);
       try {
         Constructor<?> ctor = returnClass.getConstructor();
@@ -424,7 +428,7 @@ public class SparkClient {
     } catch (Exception ex) {
       log.log(Level.SEVERE, "Error", ex);
     }
-    System.out.println("Input String = " + input);
+    log.info("Input String = " + input);
     return input;
   }
 

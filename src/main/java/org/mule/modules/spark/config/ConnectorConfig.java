@@ -1,3 +1,6 @@
+/**
+ * Copyright � 1992-2016 Cisco, Inc.
+ */
 package org.mule.modules.spark.config;
 
 import org.mule.api.annotations.components.Configuration;

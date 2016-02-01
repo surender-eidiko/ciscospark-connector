@@ -1,3 +1,6 @@
+/**
+ * Copyright � 1992-2016 Cisco, Inc.
+ */
 package org.mule.modules.spark.automation;
 
 import org.junit.Before;
@@ -10,7 +13,9 @@ public abstract class AbstractTestCase {
   private SparkConnector connector;
   private ConnectorDispatcher<SparkConnector> dispatcher;
 
-  protected SparkConnector getConnector() {
+
+
+protected SparkConnector getConnector() {
     return connector;
   }
 
@@ -18,7 +23,8 @@ public abstract class AbstractTestCase {
     return dispatcher;
   }
 
-  @Before
+  @SuppressWarnings("deprecation")
+@Before
   public void init() throws Exception {
 
     // Initialization for single-test run
