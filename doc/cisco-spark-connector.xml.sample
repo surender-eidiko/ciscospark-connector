@@ -27,6 +27,16 @@
 	 <CiscoSpark:delete-web-hooks-by-id config-ref="CiscoSpark__Configuration" webHookUID="VBGJNVFSHGDVSHMFCVSMNFBVSCFH" doc:name="CiscoSpark"/>
 <!--- END_INCLUDE(CiscoSpark:delete-web-hooks-by-id) -->
 
+<!--- BEGIN_INCLUDE(CiscoSpark:delete-messages-by-id) -->
+	 <CiscoSpark:delete-messages-by-id config-ref="CiscoSpark__Configuration" messageId="Y2lzY29zcGFyazovL3VzL01FU1NBR0UvZjkwZTkxZDAtYTk2OS0xMWU1LTkxMTYtOTc2OTBjMmMwYTU3" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:delete-messages-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:delete-application-by-id) -->
+        <CiscoSpark:delete-application-by-id config-ref="CiscoSpark__Configuration" applicationId="JHGBKHFD" doc:name="CiscoSpark">
+            <CiscoSpark:delete-application name="application"/>
+        </CiscoSpark:delete-application-by-id>
+<!--- END_INCLUDE(CiscoSpark:delete-application-by-id) -->
+
 <!--- BEGIN_INCLUDE(CiscoSpark:get-application-by-id) -->
 	 <CiscoSpark:get-application-by-id config-ref="CiscoSpark__Configuration" applicationId="C30e435f8185225b7ba3ffb66bd8c272adb4fa47c670d5a149d6e4db0abc90d8e" doc:name="CiscoSpark"/>
 <!--- END_INCLUDE(CiscoSpark:get-application-by-id) -->
