@@ -1,4 +1,4 @@
-# README.md Template
+# README.md
 
 
 ## [CiscoSpark] Anypoint™ Connector
@@ -14,7 +14,7 @@ Cisco Inc.
 :
 Mule 3.7.0
 
-## [Cisco Spark] supported versions
+## Cisco Spark supported versions
 :
 Cisco Spark Version 1.0 and above.
 
@@ -22,9 +22,9 @@ Cisco Spark Version 1.0 and above.
 Example:Cisco Spark
 ## Installation 
 
-You can access the full documentation <here>.
+You can access the full documentation <https://github.com/surender-eidiko/ciscospark-connector/blob/master/doc/user-manual.adoc>.
 
 ## Reporting Issues
 
 
-We use GitHub:Issues for tracking issues with this connector. You can report new issues at this link https://github.com/mulesoft/<connector-repository-name>/issues.
+We use GitHub:Issues for tracking issues with this connector. You can report new issues at this link https://github.com/surender-eidiko/ciscospark-connector/issues
