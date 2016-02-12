@@ -11,7 +11,7 @@ Eidiko Systems Integrators.
 :
 Mule 3.7.0
 
-## [Cisco Spark] supported versions
+## Cisco Spark supported versions
 :
 Cisco Spark Version 1.0 and above.
 
