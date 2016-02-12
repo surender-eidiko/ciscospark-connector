@@ -1,0 +1,288 @@
+
+= CiscoSpark Connector
+:keywords: CiscoSpark, Cisco, Spark
+
+The CiscoSpark Connector facilitates connections between Anypoint Studio and Cisco Spark Application. Cisco Spark Application brings teams together instantly in rooms where we can send messages, video chat, and share files, all in one place.
+
+*Release Notes:* link:/release-notes/SparkReleaseNotes.adoc[Link to Release Notes]
+
+////
+Note: existing MuleSoft documentation should be copied from right-hand column of link:https://github.com/mulesoft/mulesoft-docs/blob/master/links.csv. Links should always follow "link:"
+////
+
+---
+
+== Contents:
+
+:toc:
+---
+
+== Introduction
+
+The CiscoSpark Connector facilitates connections between Anypoint Studio and Cisco Spark Application. Cisco Spark Application brings teams together instantly in rooms where we can send messages, video chat, and share files, all in one place.
+Quickly, easily and securely extend the capabilities of Cisco Spark application throughout the enterprise with the Anypoint CiscoSpark connector from MuleSoft. The Anypoint CiscoSpark connector makes it simple to manage teams, rooms, send and receive files and instant workspaces for teams without having to interface with the Cisco Spark platform directly. +
+
+CiscoSpark Connector Operations +
+
+1. Create Rooms +
+This operation is used to create rooms at Cisco Spark Application. +
+2. Get Rooms +
+This operation is used to list all the room details to which the authenticated user belongs.  +
+3. Get Room by Id +
+This operation is used to show details for a room by Room ID. +
+4. Update Room by Id +
+This operation is used to update details for a room by Room ID. +
+5. Delete Room by Id +
+This operation is used to delete a room, by ID. Specify the room ID in the roomId input parameter. +
+6. Get Messages +
+This operation used to list all messages in a room. If present, includes the associated media content attachment for each message.  +
+7. Post Messages +
+This operation is used to post a plain text message, and optionally, a media content attachment, to a room. + 
+8. Get Messages by Id +
+This operation is used to show details for a message, by message ID. Specify the message ID in the messageId parameter used for CiscoSpark Connector at Mule Studio. +
+9. Delete Message by Id +
+This operation is used to delete a message, by message ID. Specify the message ID in the messageId parameter used for CiscoSpark Connector at Mule Studio. +
+10. Get People +
+This operation is used to list all people in your organization using input parameters like Email, Display name,Max(Limit the maximum number of people in the response). +
+11. Get People by Id +
+This operation is used to show details for a person, by ID. Specify the person ID in the personId parameter used for CiscoSpark Connector at Mule Studio. +
+12. Get Memberships +
+This operation is used to list all room memberships. By default, lists memberships for rooms to which the authenticated user belongs. Use roomId to list memberships for a room, by ID. Use either personId or personEmail to filter the results. +
+13. Add Member To Room +
+This operation is used to add someone to a room by person ID or email address optionally making them a moderator.  +
+14. Get Membership by Id +
+This operation is used to get details for a membership by ID. Specify the membership ID in the membershipId input  parameter. +
+15. Update Membership by Id +
+This operation is used to update properties for a membership by ID. Specify the membership ID in the membershipId input parameter. +
+16. Delete Membership by Id +
+This operation is used to delete a membership by ID. Specify the membership ID in the membershipId Input parameter +
+17. Get Subscriptions +
+This operation is used to list registered applications. A registered application has its own access token that it uses to perform Spark operations on behalf of another user and input parameter. +
+
+18. Get Subscriptions by Id +
+This operation is used to show details for a subscription, by ID. Specify the subscription ID in the subscriptionId parameter used for CiscoSpark Connector at Mule Studio.  +
+ Input parameter is Target subscription ID. +
+19. Delete Subscription by Id +
+These operation is used to delete a subscription, by ID. Specify the subscription ID in the subscriptionId parameter used for CiscoSpark Connector at Mule Studio. +
+Input parameter is Target subscription ID. +
+20. Get Web Hooks +
+This operation is used to list all Webhooks.  +
+max:(integer - default: 1000). +
+(Limit the maximum number of webhooks in the response). +
+21. Post Web hook +
+This operation is used to post a webhook. Input parameters are +
+Resource: (The resource type for the webhook). +
+Event: (The event type for the webhook). +
+Filter: (The filter that defines the webhook scope). +
+TargetUrl: (The URL that receives POST requests for each event). +
+Name: (A user-friendly name for this webhook). +
+22. Get Web Hooks by Id +
+This operation is used to show details for a webhook, by ID. Specify the webhook ID in the webhookId input parameter used for CiscoSpark Connector at Mule Studio.  +
+23. Update Web hook by Id +
+This operation is used to update a webhook, by ID. Specify the webhook ID in the webhookId input parameter used for CiscoSpark Connector at Mule Studio.  +
+24. Delete Web Hook by Id +
+This operation is used to delete a webhook, by ID. Specify the webhook ID in the webhookId input parameter used for CiscoSpark Connector at Mule Studio. +
+25. Get Applications +
+This operation is used to list registered applications. A registered application has its own access token that it uses to perform Spark operations on behalf of another user. +
+26. Get Applications by Id  +
+This operation is used to show details for an application, by application ID. Specify the application ID in the applicationId parameter used for CiscoSpark Connector at Mule Studio. +
+27. Register Application +
+This operation registers an application and generates an access token and OAuth access token that the application uses to perform Spark operations on behalf of another user. +
+28. Update Application by Id +
+This operation is used to update properties for an application, by application ID. Specify the application ID in the applicationId input parameter used for CiscoSpark Connector at Mule Studio.  +
+29. Add Entity +
+This operation is used to add entity. +
+30. Delete Application by Id +
+This operation is used to delete a application, by application ID. Specify the application ID in the applicationId input parameter used for CiscoSpark Connector at Mule Studio. +
+
+=== Prerequisites
+
+ This document assumes that you are familiar with Mule,Anypoint connectors and the Anypoint Studio Interface. To increase your familiarity with Studio, consider completing one or more Anypoint Studio Tutorials. Further, this page assumes that you have a basic understanding of Mule flows and Mule Global Elements.
+This document describes implementation examples within the context of Anypoint Studio, Mule ESB’s graphical user interface, and, also includes configuration details for doing the same in the XML Editor.
+
+=== Requirements
+
+•	Windows 7 64-bit +
+•	Mule Soft Software - +
+          Anypoint Studio - Tooling for Mule ESB. +
+          Version: 5.3.2. +
+          Build Id: 201510191606. +
+
+•	Install JDK 7 for DevKit 3.6 or 3.7. +
+
+
+=== Compatibility Matrix
+The Cisco Spark Connector is compatible with:
+
+Application/Service	     Version
+Mule Run-time	3.7.0 or later
+
+
+
+---
+
+== Installing and Configuring
+
+=== Installing
+
+You can install a connector in Anypoint Studio using the instructions in Installing a Connector from Anypoint Exchange
+As we can see in the image below the Cisco Tropo Connector is available in connectors palette.
+image::palette.jpg[]
+
+=== Configuring
+To use the CiscoSpark Connector in your Mule application, you must configure:
+•	A global CiscoSpark element to be used by all the CiscoSpark connectors in the application (read more about global elements in Mule).
+•	Parameters of each CiscoSpark Connector instance in the flow.
+
+Follow these steps to create a global CiscoSpark configuration in a Mule application:
+    
+1.	 Click the Global Elements tab at the base of the canvas, then click Create
+2.	 In the Choose Global Type wizard, use the filter to locate and select,
+      CiscoSpark configuration then click OK.
+3.	Configure the parameters according to the instructions shown in the below image.
+image::configuration.jpg[]
+|===
+|Field	|Description
+
+|Name	|Enter a name for the configuration so it can be referenced later 
+
+|Authorization       	|Authorization Token for connecting and loggin into CiscoSpark
+
+
+|URL		|https://api.ciscospark.com/v1
+|===
+
+
+4.Click OK to save the global connector configurations. +
+5.Return to the Message Flow tab in Studio. +
+
+---
+
+
+
+== Using This Connector
+
+Follow these steps to configure the parameters of a CiscoSpark Connector in the flow:   
+
+1.	Drag the CiscoSpark Connector onto the canvas, then select it to open the properties editor. +
+2.	Configure the connector’s parameters according to the table below. +
+|===
+|Field	|Description
+|Display Name	|Enter a unique label for the connector in your application.
+|Connector Configuration	|Connect to a global element linked to this connector. Global elements encapsulate reusable data about the connection to the target resource or service. Select the global CiscoSpark connector element that you created in the previous steps.
+|Operation	|Select the action this component must perform:
+ Create Rooms ,Get Rooms ,Get Room by Id ,Update Room by Id ,Delete Room by Id ,Get Messages ,Post Messages ,Get Messages by Id ,Delete Message by Id ,Get People ,Get People by Id ,Get Memberships ,Add Member To Room ,Get Membership by Id ,Update Membership by Id ,Delete Membership by Id ,Get Subscriptions ,Get Subscriptions by Id ,Delete Subscription by Id ,Get Web Hooks ,Post Web hook ,Get Web Hooks by Id ,Update Web hook by Id ,Delete Web Hook by Id ,Get Applications ,Get Applications by Id  ,Register Application ,Update Application by Id ,Add Entity , Delete Application by Id 
+|General	|Reference or expression: Select this option to define the parameters based on expression.
+Define Attributes: Select this option to define the values manually.
+|===
+
+3.	Click the blank space on the canvas to save your configurations. +
+  
+
+
+
+
+---
+
+== Example Use Case
+In this example flow, We are creating New Spark room where User can send messages, add additions users, etc.
+===  Anypoint Studio Visual Editor | XML Editor
+
+Explain how to create this case with  Anypoint Studio  visual editor and XML editor +
+
+
+[tab,title="Studio Visual Editor"]
+....
+[tab content goes here]
+Create a new project by clicking New > Mule Project >Project Name: sparkroomcreateapplication.
+1. Drag an HTTP connector into sparkroomcreateapplication flow. Open the connector’s properties editor.
+2. Click on the + icon shown in the image below.
+image::httpProperties.jpg[]
+3. The Global Element Properties window of HTTP Listener Configuration opens. Enter 8081 for Port as shown below and click on 'Ok'.
+image::httpGlobalProperties.jpg[]
+4. The new flow is now reachable through the path http://localhost:8081 from the local system.
+5. Drag CiscoSpark connector into sparkroomcreateapplication flow.
+6. Configure the CiscoSpark connector according to the table below.
+
+|===
+|Field	|Description
+|Display Name	|CiscoSpark.
+|Connector Configuration	|select the global configuration created earlier.
+|Operation	|Create Rooms
+ |General	|Select Define Attributes:
+|			|Title|MuleTestroom
+|			|Members| None
+|===
+
+7. Drag a Object to Json transformer to the flow.
+8. Save it.
+
+
+[tab,title="XML Editor"]
+....
+1. Add a CiscoSpark:config global element to your project, then configure its attributes according to the table below (see code below for a complete sample).+
+ <CiscoSpark:config name="CiscoSpark__Configuration" authorization="Bearer ODY5MDBiYjctNDY4NS00ODI0LThhZjktNTUxMTcyNGI3OWMyZjRiNWRhM2MtZmZk" doc:name="CiscoSpark: Configuration"/>
+
+|===
+|Attribute|Value
+|name|CiscoSpark__Configuration
+|authorization|<Auth Token>
+|===
+2. Add a http:listener-config global element to you project +
+
+3. Create a Mule flow with an HTTP endpoint, configuring the endpoint according to the table below (see code below for a complete sample). +
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+	
+|===
+|Attribute|Value
+|name|HTTP_Listener_Configuration
+|host|0.0.0.0
+|port|8081
+|===
+
+4. Add a CiscoSparkConnector to your muleflow after the http endpoint according to the table below
+		<CiscoSpark:create-rooms config-ref="CiscoSpark__Configuration" doc:name="CiscoSpark">
+            <CiscoSpark:rooms-post-request title="MuleTestRoom"/>
+        </CiscoSpark:create-rooms>
+|===
+|Attribute|Value
+|config-ref|CiscoSpark__Configuration
+|operation|create-rooms
+|title|MuleTestRoom
+|===
+
+5. Add a Object to Json transformer to your muleflow after the CiscoSparkConnector
+ <json:object-to-json-transformer doc:name="Object to JSON"/>
+....
+
+
+=== Code Example
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:CiscoSpark="http://www.mulesoft.org/schema/mule/CiscoSpark" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/CiscoSpark http://www.mulesoft.org/schema/mule/CiscoSpark/current/mule-CiscoSpark.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
+    <CiscoSpark:config name="CiscoSpark__Configuration" authorization="Bearer ODY5MDBiYjctNDY4NS00ODI0LThhZjktNTUxMTcyNGI3OWMyZjRiNWRhM2MtZmZk" doc:name="CiscoSpark: Configuration"/>
+    <flow name="sparkcreateroomFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP"/>
+        <CiscoSpark:create-rooms config-ref="CiscoSpark__Configuration" doc:name="CiscoSpark">
+            <CiscoSpark:rooms-post-request title="MuleTestRoom"/>
+        </CiscoSpark:create-rooms>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+</mule>
+
+
+---
+
+=== See Also
+
+* Access the link:/release_notes.adoc
+

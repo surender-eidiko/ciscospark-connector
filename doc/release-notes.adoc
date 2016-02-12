@@ -1,0 +1,95 @@
+
+= CiscoSpark Connector Release Notes
+////
+[<System_Name>: Cisco Spark]
+////
+:keywords: Cisco, Spark
+
+
+The CiscoSpark connector facilitates connections between Mule integration and CiscoSpark applications. The CiscoSpark connector  provides to create new Spark Rooms, Add members, post messages, create Webhooks, etc.
+
+*Guide:* <Connector_Guide_Link>
+////
+Points to the docs.mulesoft pages for documentation on the functional aspects of the connector. e.g.: link:/mule-user-guide/v/3.7/microsoft-sharepoint-2013-connector[Microsoft SharePoint 2013 Connector]
+////
+
+== Version 1.0 - 1 January 2016
+////
+<Connector_Version> : Describes the connector version, such as “V2013”, “V4.0”, “V4.0.1-HF2” or whatever used for release]
+<Release_date> : The date on which the connector is released (not when the notes are written, mind you)
+////
+=== Contents
+
+- Compatibility
+- Features
+- Fixed in this Release
+- Known Issues
+- Support Resources
+
+=== Compatibility
+
+[width="100%", cols=",", options="header"]
+|===
+|Software |Version
+|Mule Runtime |3.7.0
+|Cisco Spark |1.0
+|===
+
+
+
+
+
+=== Features
+
+. Version 1.0 Supported Operations
+The Cisco Spark Connector 1.0 allows you to perform the following operations:
+
+CiscoSpark Connector Operations +
+
+1. Create Rooms +
+2. Get Rooms +
+3. Get Room by Id +
+4. Update Room by Id +
+5. Delete Room by Id +
+6. Get Messages +
+7. Post Messages +
+8. Get Messages by Id +
+9. Delete Message by Id +
+10. Get People +
+11. Get People by Id +
+12. Get Memberships +
+13. Add Member To Room +
+14. Get Membership by Id +
+15. Update Membership by Id +
+16. Delete Membership by Id +
+17. Get Subscriptions +
+18. Get Subscriptions by Id +
+19. Delete Subscription by Id +
+20. Get Web Hooks +
+21. Post Web hook +
+22. Get Web Hooks by Id +
+23. Update Web hook by Id +
+24. Delete Web Hook by Id +
+25. Get Applications +
+26. Get Applications by Id  +
+27. Register Application +
+28. Update Application by Id +
+29. Add Entity +
+30. Delete Application by Id +
+
+=== Fixed in this Release
+Version 1.0 Fixed in this Release
+There are no bug fixes in this release.
+
+
+=== Known Issues
+
+Version 1.0 Known Issues
+There are no reported issues that are unresolved in this release.
+
+=== Support Resources
+
+- Learn how to link:/mule-user-guide/v/3.7/installing-connectors[Install Anypoint Connectors] using Anypoint Exchange.
+- Access MuleSoft’s MuleForge link:http://forum.mulesoft.org/mulesoft[Forum] to pose questions and get help from Mule’s broad community of users.
+- To access MuleSoft’s expert support team, link:http://www.mulesoft.com/mule-esb-subscription[subscribe] to Mule ESB Enterprise and log in to MuleSoft’s link:http://www.mulesoft.com/support-login[Customer Portal].
+

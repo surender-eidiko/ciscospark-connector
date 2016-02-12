@@ -1,0 +1,120 @@
+
+<!--- BEGIN_INCLUDE(CiscoSpark:create-rooms) -->
+<CiscoSpark:create-rooms config-ref="CiscoSpark__Configuration" doc:name="CiscoSpark">
+    <CiscoSpark:rooms-post-request title="MuleTestRoom"/>
+</CiscoSpark:create-rooms>
+<!--- END_INCLUDE(CiscoSpark:create-rooms) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:add-member-to-room) -->
+<CiscoSpark:add-member-to-room config-ref="CiscoSpark__Configuration" doc:name="CiscoSpark">
+    <CiscoSpark:memberships-post-request roomId="#[sessionVars.RoomId]" personEmail="ashok.pogaku@eidiko.com"/>
+  </CiscoSpark:add-member-to-room>
+<!--- END_INCLUDE(CiscoSpark:add-member-to-room) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:delete-membership-by-id) -->
+   <CiscoSpark:delete-messages-by-id config-ref="CiscoSpark__Configuration" messageId="HJGJHGBYHKBJB" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:delete-membership-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:delete-room-by-id) -->
+    <CiscoSpark:delete-room-by-id config-ref="CiscoSpark__Configuration" roomId="casc" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:delete-room-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:delete-subscriptions-by-id) -->
+	<CiscoSpark:delete-subscriptions-by-id config-ref="CiscoSpark__Configuration" subscriptionId="BMJGDSHFGVBMB " doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:delete-subscriptions-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:delete-web-hooks-by-id) -->
+	 <CiscoSpark:delete-web-hooks-by-id config-ref="CiscoSpark__Configuration" webHookUID="VBGJNVFSHGDVSHMFCVSMNFBVSCFH" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:delete-web-hooks-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-application-by-id) -->
+	 <CiscoSpark:get-application-by-id config-ref="CiscoSpark__Configuration" applicationId="C30e435f8185225b7ba3ffb66bd8c272adb4fa47c670d5a149d6e4db0abc90d8e" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-application-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-application-list) -->
+	  <CiscoSpark:get-application-list config-ref="CiscoSpark__Configuration" maxLimit="5" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-application-list) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-membership-by-id) -->
+	  <CiscoSpark:get-membership-by-id config-ref="CiscoSpark__Configuration" membershipId="Y2lzY29zcGFyazovL3VzL01FTUJFUlNISVAvOTFhZjZlOWEtOTI1ZC00MjZlLTkyOTgtM2FhZTMzY2FkNmQ4OmRhNTlmNzkwLWE5NWQtMTFlNS05OWI0LTI1MzIzOTkzZWI4YQ" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-membership-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-memberships) -->
+	 <CiscoSpark:get-memberships config-ref="CiscoSpark__Configuration" doc:name="CiscoSpark" roomId="Y2lzY29zcGFyazovL3VzL1JPT00vZGE1OWY3OTAtYTk1ZC0xMWU1LTk5YjQtMjUzMjM5OTNlYjhh"/>
+<!--- END_INCLUDE(CiscoSpark:get-memberships) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-messages-by-id) -->
+	 <CiscoSpark:get-messages-by-id config-ref="CiscoSpark__Configuration" messageId="Y2lzY29zcGFyazovL3VzL01FU1NBR0UvZjkwZTkxZDAtYTk2OS0xMWU1LTkxMTYtOTc2OTBjMmMwYTU3" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-messages-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-messages) -->
+	 <CiscoSpark:get-messages config-ref="CiscoSpark__Configuration" roomId="Y2lzY29zcGFyazovL3VzL1JPT00vZGE1OWY3OTAtYTk1ZC0xMWU1LTk5YjQtMjUzMjM5OTNlYjhh" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-messages) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-people) -->
+	 <CiscoSpark:get-people config-ref="CiscoSpark__Configuration" email="ashok.pogaku@eidiko.com" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-people) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-people-by-id) -->
+	 <CiscoSpark:get-people-by-id config-ref="CiscoSpark__Configuration" uid="Y2lzY29zcGFyazovL3VzL1BFT1BMRS85MWFmNmU5YS05MjVkLTQyNmUtOTI5OC0zYWFlMzNjYWQ2ZDg" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-people-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-room-by-id) -->
+	 <CiscoSpark:get-room-by-id config-ref="CiscoSpark__Configuration" roomId="Y2lzY29zcGFyazovL3VzL1JPT00vZGE1OWY3OTAtYTk1ZC0xMWU1LTk5YjQtMjUzMjM5OTNlYjhh" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-room-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-rooms) -->
+	 <CiscoSpark:get-rooms config-ref="CiscoSpark__Configuration" maxLimit="5" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-rooms) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-subscriptions) -->
+	 <CiscoSpark:get-subscriptions config-ref="CiscoSpark__Configuration" personId="Y2lzY29zcGFyazovL3VzL1BFT1BMRS85MWFmNmU5YS05MjVkLTQyNmUtOTI5OC0zYWFlMzNjYWQ2ZDg" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-subscriptions) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-subscriptions-by-id) -->
+	 <CiscoSpark:get-subscriptions-by-id config-ref="CiscoSpark__Configuration" subscriptionId="Y2lzY29zcGFyazovL3VzL1NVQlNDUklQVElPTi8wN2NiMGI2MS0wMzhiLTQ5OWItODcxNS1iYTkwNzNlNzNhMDk" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-subscriptions-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-web-hooks) -->
+	 <CiscoSpark:get-web-hooks config-ref="CiscoSpark__Configuration"  doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-web-hooks) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:get-web-hooks-by-id) -->
+	 <CiscoSpark:get-web-hooks-by-id config-ref="CiscoSpark__Configuration" webHookUID="Y2lzY29zcGFyazovL3VzL1dFQkhPT0svNTUxMWQ1N2ItMmNiZi00YmI2LWI5OTctZjdiODcyMDQ4ZjZi" doc:name="CiscoSpark"/>
+<!--- END_INCLUDE(CiscoSpark:get-web-hooks-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:post-messages) -->
+	 <CiscoSpark:post-messages config-ref="CiscoSpark__Configuration" doc:name="CiscoSpark">
+            <CiscoSpark:messages-post-request roomId="Y2lzY29zcGFyazovL3VzL1JPT00vOTA4ZWNkYzAtYTk5NC0xMWU1LThmMWMtNjE3MGE4ZWM0MGFj" text="Hai team muleEidiko 23122015"/>
+     </CiscoSpark:post-messages>
+<!--- END_INCLUDE(CiscoSpark:post-messages) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:post-web-hooks) -->
+	<CiscoSpark:post-web-hooks config-ref="CiscoSpark__Configuration" doc:name="CiscoSpark">
+        <CiscoSpark:webhooks-post-request resource="messages" event="created" filter="roomId=Y2lzY29zcGFyazovL3VzL1JPT00vZGE1OWY3OTAtYTk1ZC0xMWU1LTk5YjQtMjUzMjM5OTNlYjhh" targetUrl="https://example.com/mywebhook23122015" name="eidiko 23122015"/>
+    </CiscoSpark:post-web-hooks>
+<!--- END_INCLUDE(CiscoSpark:post-web-hooks) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:update-application-by-id) -->
+        <CiscoSpark:update-application-by-id config-ref="CiscoSpark__Configuration" applicationId="JHGBKHFD" doc:name="CiscoSpark">
+            <CiscoSpark:update-application name="application"/>
+        </CiscoSpark:update-application-by-id>
+<!--- END_INCLUDE(CiscoSpark:update-application-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:update-membership-by-id) -->
+		<CiscoSpark:update-membership-by-id config-ref="CiscoSpark__Configuration" membershipId="Y2lzY29zcGFyazovL3VzL01FTUJFUlNISVAvOTFhZjZlOWEtOTI1ZC00MjZlLTkyOTgtM2FhZTMzY2FkNmQ4OmRhNTlmNzkwLWE5NWQtMTFlNS05OWI0LTI1MzIzOTkzZWI4YQ" doc:name="CiscoSpark">
+            <CiscoSpark:memberships-id-put-request isModerator="true"/>
+        </CiscoSpark:update-membership-by-id>
+<!--- END_INCLUDE(CiscoSpark:update-membership-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:update-room-by-id) -->
+		 <CiscoSpark:update-room-by-id config-ref="CiscoSpark__Configuration" roomId="Y2lzY29zcGFyazovL3VzL1JPT00vZGE1OWY3OTAtYTk1ZC0xMWU1LTk5YjQtMjUzMjM5OTNlYjhh" doc:name="CiscoSpark">
+            <CiscoSpark:rooms-id-put-request title="Test Spark 23122015 with new token"/>
+        </CiscoSpark:update-room-by-id>
+<!--- END_INCLUDE(CiscoSpark:update-room-by-id) -->
+
+<!--- BEGIN_INCLUDE(CiscoSpark:update-web-hooks-by-id) -->
+		<CiscoSpark:update-web-hooks-by-id config-ref="CiscoSpark__Configuration" webHookUID="Y2lzY29zcGFyazovL3VzL1dFQkhPT0svNTUxMWQ1N2ItMmNiZi00YmI2LWI5OTctZjdiODcyMDQ4ZjZi" doc:name="CiscoSpark">
+            <CiscoSpark:webhooks-id-put-request name="Team Test 23122015" targetUrl="https://example.com/Eidiko23122015"/>
+        </CiscoSpark:update-web-hooks-by-id>
+<!--- END_INCLUDE(CiscoSpark:update-web-hooks-by-id) -->
