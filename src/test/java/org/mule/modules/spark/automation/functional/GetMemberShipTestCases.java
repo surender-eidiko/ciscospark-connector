@@ -3,6 +3,7 @@
  */
 package org.mule.modules.spark.automation.functional;
 
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -22,9 +23,11 @@ public class GetMemberShipTestCases extends CiscoSparkAbstractTestCases {
 	@Category({FunctionalTestSuite.class})
 	public void testGetMemberShip()
 	{
-		String id = TestDataBuilder.getRoomId();
+		
+		String id = getRoomId();
 		MembershipsGetResponse member = getConnector().getMemberships(id, null,TestDataBuilder.getEmail(), 5);
 	    assertNotNull(member);
+	   
 	}
 
 }

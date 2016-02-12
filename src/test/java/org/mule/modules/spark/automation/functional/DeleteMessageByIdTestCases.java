@@ -2,6 +2,8 @@
  * Copyright � 1992-2016 Cisco, Inc.
  */
 package org.mule.modules.spark.automation.functional;
+
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -19,10 +21,11 @@ public class DeleteMessageByIdTestCases extends CiscoSparkAbstractTestCases {
 	@Test
 	@Category({FunctionalTestSuite.class})
 	public void testDeleteMessageById() {
-		String messageId = TestDataBuilder.getMessageId();
+		String messageId = getMessageId();
 		StatusResponse deleteMessage = getConnector().deleteMessagesById(
 				messageId);
 		assertNotNull(deleteMessage);
+		
 	}
 
 }

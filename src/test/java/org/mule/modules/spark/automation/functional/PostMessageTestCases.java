@@ -3,6 +3,7 @@
  */
 package org.mule.modules.spark.automation.functional;
 
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -24,9 +25,10 @@ public class PostMessageTestCases extends CiscoSparkAbstractTestCases {
 	public void testPostMessage()
 	{
 		
-		  MessagesPostRequest postReq = TestDataBuilder.getMessagesPostRequest();   
+		  MessagesPostRequest postReq = getMessagesPostRequest();   
 		  MessagesPostResponse  msg = getConnector().postMessages(postReq);
 		  assertNotNull(msg);
-		
+		 
+		  
 	}
 }

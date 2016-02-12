@@ -2,6 +2,7 @@
  * Copyright � 1992-2016 Cisco, Inc.
  */
 package org.mule.modules.spark.automation.functional;
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -20,10 +21,10 @@ public class GetPeopleByIdTestCases extends CiscoSparkAbstractTestCases {
 	@Category({FunctionalTestSuite.class})
 	public void testGetPeopleById()
 	{
-		String personId = TestDataBuilder.getPersonId();
+		String personId = getPersonId();
 		 PeopleIdGetResponse peopleid = getConnector().getPeopleById(personId);
 		  assertNotNull(peopleid);
-				
+		  
 	}
 
 }

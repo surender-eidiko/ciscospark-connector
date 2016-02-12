@@ -2,6 +2,7 @@
  * Copyright � 1992-2016 Cisco, Inc.
  */
 package org.mule.modules.spark.automation.functional;
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -19,10 +20,11 @@ public class DeleteSubscriptionByIdTestCases extends CiscoSparkAbstractTestCases
 	@Test
 	@Category({FunctionalTestSuite.class})
 	public void testDeleteSubscription() {
-		String subscriptionId = TestDataBuilder.SubscriptionId();
+		String subscriptionId = getSubscriptionId();
 		StatusResponse deletesubId = getConnector().deleteSubscriptionsById(
 				subscriptionId);
 		assertNotNull(deletesubId);
+		
 	}
 
 }

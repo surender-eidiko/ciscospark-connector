@@ -3,6 +3,7 @@
  */
 package org.mule.modules.spark.automation.functional;
 
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -20,11 +21,11 @@ public class GetWebHookByIdTestCases extends CiscoSparkAbstractTestCases {
 	@Test
 	@Category({FunctionalTestSuite.class})
 	public void testGetWebHookById() {
-		String webHookId = TestDataBuilder.getWebHooksId();
+		String webHookId = getWebHooksId();
 		WebhooksIdGetResponse webId = getConnector().getWebHooksById(
 				webHookId);
 		assertNotNull(webId);
-
+		
 	}
 
 }

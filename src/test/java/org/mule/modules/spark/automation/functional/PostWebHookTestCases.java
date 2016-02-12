@@ -2,6 +2,7 @@
  * Copyright � 1992-2016 Cisco, Inc.
  */
 package org.mule.modules.spark.automation.functional;
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -22,9 +23,10 @@ public class PostWebHookTestCases extends CiscoSparkAbstractTestCases {
 	@Category({FunctionalTestSuite.class})
 	public void testPostWebHook()
 	{
-		WebhooksPostRequest webReq = TestDataBuilder.getWebhooksPostRequest();
+		WebhooksPostRequest webReq = getWebhooksPostRequest();
 		  WebhooksPostResponse webHookResp = getConnector().postWebHooks(webReq);
 		  assertNotNull(webHookResp);
+		 
 		  
 	}
 

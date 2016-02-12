@@ -2,6 +2,7 @@
  * Copyright � 1992-2016 Cisco, Inc.
  */
 package org.mule.modules.spark.automation.functional;
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -40,6 +41,7 @@ public class GetApplicationByIdTestCases extends CiscoSparkAbstractTestCases {
 			    
 			    ApplicationIdGetResponse  applicationIdGetResponse = getConnector().getApplicationById(applicationResponseItem.getId(), true);
 			   	 assertNotNull(applicationIdGetResponse);
+			   
 		  }
 	}
 	

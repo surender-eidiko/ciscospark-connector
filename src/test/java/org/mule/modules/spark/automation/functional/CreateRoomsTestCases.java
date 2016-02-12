@@ -2,6 +2,7 @@
  * Copyright � 1992-2016 Cisco, Inc.
  */
 package org.mule.modules.spark.automation.functional;
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -23,9 +24,11 @@ public class CreateRoomsTestCases extends CiscoSparkAbstractTestCases {
 	 @Category({FunctionalTestSuite.class})
 	  public void testCreateRooms() throws Exception {
 	    
-		RoomsPostRequest roomsPostRequest = TestDataBuilder.getRoomsPostRequest();
+		RoomsPostRequest roomsPostRequest = getRoomsPostRequest();
 	     RoomsPostResponse response=  getConnector().createRooms(roomsPostRequest);
 	     assertNotNull(response);
+	    
+	   
 		 
 	  }
 

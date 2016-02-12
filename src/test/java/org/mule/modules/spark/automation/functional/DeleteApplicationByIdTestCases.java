@@ -3,6 +3,7 @@
  */
 package org.mule.modules.spark.automation.functional;
 
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -23,7 +24,8 @@ public class DeleteApplicationByIdTestCases extends CiscoSparkAbstractTestCases 
 		String applicationId = TestDataBuilder.getApplicationId();
 		StatusResponse deleteApp = getConnector().deleteApplicationById(
 				applicationId);
-		assertNotNull(deleteApp);
+		 assertNotNull(deleteApp);
+		
 	}
 
 }

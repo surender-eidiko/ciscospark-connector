@@ -3,6 +3,7 @@
  */
 package org.mule.modules.spark.automation.functional;
 
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -24,9 +25,11 @@ public class AddMemeberToRoomTestCases extends CiscoSparkAbstractTestCases {
 	public void testAddMemberToRoom()
 	{
 		
-	      MembershipsPostRequest memberReqst = TestDataBuilder.getMembershipsPostRequest();
+	      MembershipsPostRequest memberReqst = getMembershipsPostRequest();
 	      MembershipsPostResponse addMemeber = getConnector().addMemberToRoom(memberReqst);
 	      assertNotNull(addMemeber);
+	     
+	     
 		
 	}
 

@@ -5,6 +5,19 @@ package org.mule.modules.spark.automation.functional;
 
 import org.junit.Before;
 import org.mule.modules.spark.SparkConnector;
+import org.mule.modules.spark.bean.ApplicationGetResponse;
+import org.mule.modules.spark.bean.ApplicationGetResponseItem;
+import org.mule.modules.spark.bean.MembershipsIdPutRequest;
+import org.mule.modules.spark.bean.MembershipsPostRequest;
+import org.mule.modules.spark.bean.MembershipsPostResponse;
+import org.mule.modules.spark.bean.MessagesPostRequest;
+import org.mule.modules.spark.bean.MessagesPostResponse;
+import org.mule.modules.spark.bean.PeopleGetResponse;
+import org.mule.modules.spark.bean.RoomsPostRequest;
+import org.mule.modules.spark.bean.RoomsPostResponse;
+import org.mule.modules.spark.bean.SubscriptionsGetResponse;
+import org.mule.modules.spark.bean.WebhooksPostRequest;
+import org.mule.modules.spark.bean.WebhooksPostResponse;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 import org.mule.tools.devkit.ctf.mockup.ConnectorDispatcher;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
@@ -46,5 +59,120 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 
 	    connector = dispatcher.createMockup();
 
-	  }			
+	  }	
+	
+	public static RoomsPostRequest  getRoomsPostRequest()
+	{
+		RoomsPostRequest roomsPostRequest =new RoomsPostRequest();
+	    roomsPostRequest.setTitle("Test Case Room");
+	    return roomsPostRequest;
+	}
+	public String getRoomId()
+	{
+		 RoomsPostRequest roomsPostRequest = getRoomsPostRequest();
+	     RoomsPostResponse response=  getConnector().createRooms(roomsPostRequest);
+	     String roomid = response.getId();
+	     return roomid;
+	}
+	public  MembershipsPostRequest getMembershipsPostRequest()
+	{
+		
+		   String id = getRoomId();
+		  MembershipsPostRequest memberReqst = new MembershipsPostRequest();
+	      memberReqst.setRoomId(id);
+	      memberReqst.setPersonEmail(TestDataBuilder.getEmail());
+	      
+	      return memberReqst;
+	}
+
+	public  MessagesPostRequest getMessagesPostRequest()
+	{
+		
+		   String id = getRoomId();
+		  MessagesPostRequest postReq = new MessagesPostRequest();
+		  postReq.setRoomId(id);
+		  postReq.setText("Test Case Room");
+		  postReq.setFiles(null);
+		  
+		  return postReq;
+	}
+	public  WebhooksPostRequest getWebhooksPostRequest()
+	{
+		
+		   String id = getRoomId();
+		 WebhooksPostRequest webReq = new WebhooksPostRequest();
+		  webReq.setName("Eidiko");
+		  webReq.setResource("messages");
+		  webReq.setEvent("created");
+		  webReq.setFilter("roomId="+id);
+		  webReq.setTargetUrl("https://example.com/Eidiko");
+		  return webReq;
+	}
+	public  MembershipsIdPutRequest getMembershipsIdPutRequest()
+	{
+		
+		   String id = getRoomId();
+		String membershipId = getMembershipId();
+		MembershipsIdPutRequest memberReq = new MembershipsIdPutRequest();
+		  memberReq.setPersonEmail(TestDataBuilder.getEmail());
+		  memberReq.setRoomId(id);
+		  memberReq.setId(membershipId);
+		  return memberReq;
+	}
+
+	 public String getMembershipId() {
+	  
+	
+	  MembershipsPostRequest memberReqst = getMembershipsPostRequest();
+	 
+	  MembershipsPostResponse addMemeber =
+	  getConnector().addMemberToRoom(memberReqst);
+	  String membershipId = addMemeber.getId();
+	  
+	  return membershipId; 
+	  
+	 }
+	 public String getMessageId() {
+		  
+		  MessagesPostRequest postReq = getMessagesPostRequest();
+		  MessagesPostResponse msg = getConnector().postMessages(postReq); String
+		  messageId = msg.getId(); 
+		  return messageId; 
+		  }
+	
+	 public String getWebHooksId() {
+		 
+		 WebhooksPostRequest webReq = getWebhooksPostRequest();
+		  WebhooksPostResponse webHookResp = getConnector().postWebHooks(webReq);
+		  String webHooksId = webHookResp.getId();
+		   return webHooksId;
+		  }
+	 
+	 public String getSubscriptionId()
+	 {
+		 SubscriptionsGetResponse subscription = getConnector().getSubscriptions(getPersonId(), 5);
+		  
+		  String subscriptionId = "test";
+		  if(subscription.getItems().size()  > 0){
+		    subscriptionId = subscription.getItems().get(0).getId();
+		  }
+		  return subscriptionId;
+	 }
+	 
+	 public String getPersonId() {
+		 PeopleGetResponse people = getConnector().getPeople("ratan.siripurapu@eidiko.com", null,5);
+		  String personId = people.getItems().get(0).getId(); 
+		  return personId; 
+		 }
+	 public  String getApplicationId() {
+		 ApplicationGetResponse app =  getConnector().getApplicationList(true, 1000);
+		 String applicationId =null ;
+		 if(app.getItems().size() >0 ){
+			 ApplicationGetResponseItem applicationResponseItem =  app.getItems().get(0);
+			 applicationId = applicationResponseItem.getId();
+		 }
+		 return applicationId;
+	}
+	
+		 
 }

@@ -2,6 +2,7 @@
  * Copyright � 1992-2016 Cisco, Inc.
  */
 package org.mule.modules.spark.automation.functional;
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -23,11 +24,14 @@ public class UpdateRoomByIdTestCases extends CiscoSparkAbstractTestCases {
 	public void testUpdateRoomById()
 	{
 		
-		String id = TestDataBuilder.getRoomId();
+		
+		String id = getRoomId();
 		
 		RoomsIdPutRequest updateRoom = TestDataBuilder.getRoomsIdPutRequest();
 	     RoomsIdPutResponse updateResponse= getConnector().updateRoomById(id,updateRoom);
 	      assertNotNull(updateResponse);
+	     
+	     
 	}
 
 }

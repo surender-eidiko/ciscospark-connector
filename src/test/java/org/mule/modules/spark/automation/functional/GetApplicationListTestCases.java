@@ -23,6 +23,7 @@ public class GetApplicationListTestCases extends CiscoSparkAbstractTestCases {
 	{
 		ApplicationGetResponse app =  getConnector().getApplicationList(true, 1000);
 	      assertNotNull(app);
+	    
 	}
 
 }

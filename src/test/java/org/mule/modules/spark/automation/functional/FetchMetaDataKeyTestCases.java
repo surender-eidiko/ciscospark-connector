@@ -2,6 +2,7 @@
  * Copyright � 1992-2016 Cisco, Inc.
  */
 package org.mule.modules.spark.automation.functional;
+
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -46,6 +47,7 @@ public class FetchMetaDataKeyTestCases extends CiscoSparkAbstractTestCases {
 		      // Assert on MetaDataKeys
 		      assertNotNull(user);
 		      assertNotNull(book);
+		     
 		}
 
 }

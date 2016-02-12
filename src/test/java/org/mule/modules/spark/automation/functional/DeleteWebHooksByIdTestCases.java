@@ -3,6 +3,8 @@
  */
 package org.mule.modules.spark.automation.functional;
 
+
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -22,8 +24,9 @@ public class DeleteWebHooksByIdTestCases extends CiscoSparkAbstractTestCases {
 	@Category({FunctionalTestSuite.class})
 	public void testDeleteWebHooksById()
 	{
-		String webHookId = TestDataBuilder.getWebHooksId();
+		String webHookId = getWebHooksId();
 		StatusResponse deleteWebHook = getConnector().deleteWebHooksById(webHookId);
 	    assertNotNull(deleteWebHook);
+	    	
 	}
 }

@@ -2,6 +2,8 @@
  * Copyright � 1992-2016 Cisco, Inc.
  */
 package org.mule.modules.spark.automation.functional;
+
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -20,9 +22,11 @@ public class DeleteRoomByIdTestCases extends CiscoSparkAbstractTestCases {
 	@Test
 	@Category({FunctionalTestSuite.class})
 	public void testDeleteRoomById() {
-		String roomId = TestDataBuilder.getRoomId();
+		
+		String roomId = getRoomId();
 		StatusResponse deleteRoomId = getConnector().deleteRoomById(roomId);
 		assertNotNull(deleteRoomId);
+		
 	}
 
 }

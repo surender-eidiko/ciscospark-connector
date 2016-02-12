@@ -22,8 +22,10 @@ public class GetMessageTestCases extends CiscoSparkAbstractTestCases {
 	@Category({FunctionalTestSuite.class})
 	public void testGetMessage()
 	{
-		  String id = TestDataBuilder.getRoomId();
+		
+		String id = getRoomId();
 		 MessagesGetResponse msgResponse = getConnector().getMessages(id,null,null,5);
 		 assertNotNull(msgResponse);
+		 
 	}
 }
