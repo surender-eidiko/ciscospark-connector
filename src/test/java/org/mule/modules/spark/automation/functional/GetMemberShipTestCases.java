@@ -4,6 +4,7 @@
 package org.mule.modules.spark.automation.functional;
 
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -27,6 +28,7 @@ public class GetMemberShipTestCases extends CiscoSparkAbstractTestCases {
 		String id = getRoomId();
 		MembershipsGetResponse member = getConnector().getMemberships(id, null,TestDataBuilder.getEmail(), 5);
 	    assertNotNull(member);
+	    assertEquals("200", member.getStatusCode() );
 	   
 	}
 

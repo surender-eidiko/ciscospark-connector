@@ -4,6 +4,7 @@
 package org.mule.modules.spark.automation.functional;
 
 
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -27,7 +28,7 @@ public class UpdateMemberShipByIdTestCases extends CiscoSparkAbstractTestCases {
 		String membershipId = getMembershipId();
 		  MembershipsIdPutResponse memberUpdate = getConnector().updateMembershipById(membershipId, memberReq);
 		  assertNotNull(memberUpdate);
-		  
+		  /*assertEquals("200", memberUpdate.getStatusCode() ); */
 		
 	}
 

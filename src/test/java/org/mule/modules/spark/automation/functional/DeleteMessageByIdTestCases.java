@@ -4,6 +4,7 @@
 package org.mule.modules.spark.automation.functional;
 
 
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -25,7 +26,7 @@ public class DeleteMessageByIdTestCases extends CiscoSparkAbstractTestCases {
 		StatusResponse deleteMessage = getConnector().deleteMessagesById(
 				messageId);
 		assertNotNull(deleteMessage);
-		
+		/*assertEquals("200", deleteMessage.getStatusCode());*/
 	}
 
 }

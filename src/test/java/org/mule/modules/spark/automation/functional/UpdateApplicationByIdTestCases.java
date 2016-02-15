@@ -3,6 +3,7 @@
  */
 package org.mule.modules.spark.automation.functional;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -39,8 +40,8 @@ public class UpdateApplicationByIdTestCases extends CiscoSparkAbstractTestCases 
 		   	applicationIdPutRequest.setScopes(applicationResponseItem.getScopes());
 		   	ApplicationIdPutResponse applicationIdPutResponse = getConnector().updateApplicationById(applicationResponseItem.getId(), applicationIdPutRequest);
 		    assertNotNull(applicationIdPutResponse);
-		    
-		   
+			assertEquals("200", applicationIdPutResponse.getStatusCode() ); 
+			assertEquals(applicationIdPutRequest.getName(), applicationIdPutResponse.getName());
 		    
 		      }
 		 }

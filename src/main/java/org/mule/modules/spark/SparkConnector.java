@@ -77,8 +77,6 @@ public class SparkConnector {
 
   /**
    * This method get the list of application
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-application-list}
-   *
    * @param showSubscriptionCount , To show the subscriptionCount metric in the response, set this value to true.<BR>
    * @param maxLimit , Limits the number of applications in the response.<BR>
    * @return ApplicationGetResponse object
@@ -91,8 +89,6 @@ public class SparkConnector {
 
   /**
    * This method register the application
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-application-list}
-   *
    * @param applicationPostRequest , A registered application has its own access token that it uses to perform Spark operations on behalf of another user.<BR>
    * @return ApplicationPostResponse object
    */
@@ -104,8 +100,6 @@ public class SparkConnector {
 
   /**
    * This method get the application by Id
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-application-by-id}
-   *
    * @param applicationId , using that applicationId it returns applications.<BR>
    * @param showSubscriptionCount , To show the subscriptionCount metric in the response, set this value to true.<BR>
    * @return ApplicationIdGetResponse Object
@@ -119,8 +113,6 @@ public class SparkConnector {
 
   /**
    * This method update applications by applicationId
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:update-application-by-id}
-   *
    * @param applicationId , Using that applicationId  It update the applications.<BR>
    * @param updateApplication , Updates properties for an application, by application ID.<BR>
    * @return ApplicationIdPutResponse Object
@@ -134,8 +126,6 @@ public class SparkConnector {
 
   /**
    * This method delete the application using applicationId
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:delete-application-by-id}
-   *
    * @param applicationId , Using that applicationId  It delete the applications.<BR>
    * @return StatusResponse object for delete application
    */
@@ -146,8 +136,6 @@ public class SparkConnector {
 
   /**
    * This method get the Members using roomId , personId ,personEmail
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-memberships}
-   *
    * @param roomId , The room Id.<BR>
    * @param personId , The Person Id.<BR>
    * @param personEmail , The Person Email.<BR>
@@ -164,8 +152,6 @@ public class SparkConnector {
 
   /**
    * This method add the membership into the room
-    *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:add-member-to-room}
-   *
    * @param membershipsPostRequest , add details for a membership.<BR>
    * @return MembershipsPostResponse Object
    */
@@ -177,8 +163,6 @@ public class SparkConnector {
 
   /**
    * This method Shows details for a membership, by membership ID.
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-membership-by-id}
-   *
    * @param membershipId , Specify the membership ID in the membershipId parameter in the URI.<BR>
    * @return MembershipsIdGetResponse
    */
@@ -189,8 +173,6 @@ public class SparkConnector {
 
   /**
    * This method Updates properties for a membership, by membership ID.
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:update-membership-by-id}
-   *
    * @param membershipId , Specify the membership ID in the membershipId parameter in the URI.<BR>
    * @param membershipsIdPutRequest , Update properties for a membership.<BR>
    * @return MembershipsIdPutResponse Object
@@ -204,8 +186,6 @@ public class SparkConnector {
 
   /**
    * This method Deletes a membership, by membership ID.
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:delete-membership-by-id}
-   *
    * @param membershipId , Specify the membership ID in the membershipId parameter in the URI.<BR>
    * @return StatusResponse Object
    */
@@ -216,8 +196,6 @@ public class SparkConnector {
 
   /**
    * This method Returns a list of messages in a specific room, in descending order by create date.
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-messages}
-   *
    * @param roomId , Only return messages for this room.<BR>
    * @param before , Only return messages sent before this datetime in ISO8601 format.<BR>
    * @param beforeMessage , Only return messages sent before this message ID.<BR>
@@ -231,10 +209,7 @@ public class SparkConnector {
     return getClient().getMessages(roomId, before, beforeMessage, maxLimit);
   }
 
-  /**
-   *This method Posts a new message and/or media content into a room.
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:post-messages}
-   *
+  /**This method Post a new message and/or media content into a room.
    * @param messagesPostRequest , Post a new message and/or media content into a room.<BR>
    * @return MessagesPostResponse Object
    */
@@ -246,8 +221,6 @@ public class SparkConnector {
 
   /**
    * This method Returns a single message using message Id
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-messages-by-id}
-   *
    * @param messageId , The ||messageId|| parameter in the URL identifies the message you'd like returned.<BR>
    * @return MessagesIdGetResponse Object
    */
@@ -257,9 +230,7 @@ public class SparkConnector {
   }
 
   /**
-   * This method deletes a single message using message Id
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:delete-messages-by-id}
-   *
+   * This method delete a single message using message Id
    * @param messageId , Returns a single message. The ||messageId|| parameter inthe URL identifies the message you'd like to delete. Deleting a messageswill notify all members of the room that the authenticated user deleted themessage. Generally, users can only delete their own messages except for thecase of Moderated Rooms and Org Administrators. See TODO to learn about RoomModeration and how it affects permissions.<BR>
    * @return StatusResponse Object
    */
@@ -270,8 +241,6 @@ public class SparkConnector {
 
   /**
    * This method Returns a list of people in your organization
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-people}
-   *
    * @param email , Returns people with this exact email address.<BR>
    * @param displayName , Returns people whose name starts with this string.<BR>
    * @param maxLimit , Only return at most this many people.<BR>
@@ -285,8 +254,6 @@ public class SparkConnector {
 
   /**
    * This method Returns a single person by ID
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-people-by-id}
-   *
    * @param uid , Returns a single person by ID.<BR>
    * @return PeopleIdGetResponse Object
    */
@@ -297,8 +264,6 @@ public class SparkConnector {
 
   /**
    * This method Returns a list of rooms. In most cases the results will only contain rooms that the authentiated user is a member of.
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-rooms}
-   *
    * @param showSipAddress , Include the SIP address for this room for VOIP dialing.<BR>
    * @param maxLimit , Only return at most this many rooms.<BR>
    * @return RoomsGetResponse Object
@@ -311,7 +276,6 @@ public class SparkConnector {
 
   /**
    * This method Creates a new room.
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:create-rooms}
    * @param roomsPostRequest , Creates a new room. The authenticated user is automatically added as a member of the room. See the Memberships API to learn how to add more people to the room.<BR>
    * @return RoomsPostResponse Object
    */
@@ -322,7 +286,6 @@ public class SparkConnector {
 
   /**
    * This method Returns a single room
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-room-by-id}
    * @param roomId , The ||roomId|| parameter in the URL identifies the room you'd like returned.<BR>
    * @return RoomsIdGetResponse Object
    */
@@ -332,8 +295,7 @@ public class SparkConnector {
   }
 
   /**
-   * This method Used to update a single room's properties. 
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:update-room-by-id}
+   * This method Used to update a single room's properties.
    * @param roomId , The ||roomId|| parameter in the URL identifies the room you'd like to update.<BR>
    * @param roomsIdPutRequest , Used to update a single room's properties. The ||roomId|| parameter in the URL identifies the room you'd like to update.<BR>
    * @return RoomsIdPutResponse Object
@@ -346,7 +308,6 @@ public class SparkConnector {
 
   /**
    * This method Deletes a single room using room Id
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:delete-room-by-id}
    * @param roomId ,  The ||roomId|| parameter in the URL identifies the room you'd like to delete. Deleting a room will TODO.<BR>
    * @return StatusResponse Object
    */
@@ -357,7 +318,6 @@ public class SparkConnector {
 
   /**
    * This method Returns a list of subscriptions
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-subscriptions}
    * @param personId , Return subscriptions for the specified person.<BR>
    * @param maxLimit , Only return at most this many subscriptions.<BR>
    * @return SubscriptionsGetResponse Object
@@ -370,7 +330,6 @@ public class SparkConnector {
 
   /**
    * This method returns a single subscription by ID
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-subscriptions-by-id}
    * @param subscriptionId , Returns a single subscription by ID.<BR>
    * @return SubscriptionsIdGetResponse Object
    */
@@ -381,7 +340,6 @@ public class SparkConnector {
 
   /**
    * This method deletes a single subscription by ID
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:delete-subscriptions-by-id}
    * @param subscriptionId ,the subscriptionId.<BR>
    * @return StatusResponse Object
    */
@@ -392,7 +350,6 @@ public class SparkConnector {
 
   /**
    * This method Returns a list of webhooks
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-web-hooks}
    * @param maxLimit , Only return at most this many webhooks.<BR>
    * @return WebhooksGetResponse Object
    */
@@ -403,7 +360,6 @@ public class SparkConnector {
 
   /**
    * This method POST to the supplied URL the body of the associated message resource whenever there is a new message in that room.
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:post-web-hooks}
    * @param webhooksPostRequest , Webhooks are a developer's way of receiving notification from the Spark platform that an event has occurred. For example, when registered for "message:created" events for a specific room, Spark will POST to the supplied URL the body of the associated message resource whenever there is a new message in that room.<BR>
    * @return WebhooksPostResponse Object
    */
@@ -415,7 +371,6 @@ public class SparkConnector {
 
   /**
    * This method Returns a single webhook by ID. 
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:get-web-hooks-by-id}
    * @param webHookUID , The ||webhookId|| parameter in the URL identifies the webhook you'd like to update.<BR>
    * @return WebhooksIdGetResponse Object
    */
@@ -425,8 +380,7 @@ public class SparkConnector {
   }
 
   /**
-   * This method Updates a single webhook's properties. 
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:update-web-hooks-by-id}
+   * This method Updates a single webhook's properties.
    * @param webHookUID , The ||webhookId|| parameter in the URL identifies the webhook you'd like to update.<BR>
    * @param webhooksIdPutRequest , Updates a single webhook's properties.The ||webhookId|| parameter in the URL identifies the webhook you'd like to update.<BR>
    * @return WebhooksIdPutResponse Object
@@ -439,7 +393,6 @@ public class SparkConnector {
 
   /**
    * This method Deletes a single webhook
-   *  {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:CiscoSpark:delete-web-hooks-by-id}
    * @param webHookUID , The ||webhookId|| parameter in the URL identifies the webhook you'd like to delete.<BR>
    * @return StatusResponse Object
    */

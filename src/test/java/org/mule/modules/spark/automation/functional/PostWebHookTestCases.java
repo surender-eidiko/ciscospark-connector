@@ -3,6 +3,7 @@
  */
 package org.mule.modules.spark.automation.functional;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -26,7 +27,7 @@ public class PostWebHookTestCases extends CiscoSparkAbstractTestCases {
 		WebhooksPostRequest webReq = getWebhooksPostRequest();
 		  WebhooksPostResponse webHookResp = getConnector().postWebHooks(webReq);
 		  assertNotNull(webHookResp);
-		 
+		  assertEquals("200", webHookResp.getStatusCode() ); 
 		  
 	}
 

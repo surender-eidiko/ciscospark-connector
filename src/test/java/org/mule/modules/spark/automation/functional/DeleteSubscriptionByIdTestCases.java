@@ -3,6 +3,7 @@
  */
 package org.mule.modules.spark.automation.functional;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -24,7 +25,7 @@ public class DeleteSubscriptionByIdTestCases extends CiscoSparkAbstractTestCases
 		StatusResponse deletesubId = getConnector().deleteSubscriptionsById(
 				subscriptionId);
 		assertNotNull(deletesubId);
-		
+		assertEquals("200", deletesubId.getStatusCode());
 	}
 
 }
