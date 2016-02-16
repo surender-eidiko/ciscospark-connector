@@ -5,6 +5,7 @@ package org.mule.modules.spark.automation.functional;
 
 
 
+
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -29,7 +30,7 @@ public class RegisterApplicationTestCases extends CiscoSparkAbstractTestCases {
 	   	 ApplicationPostResponse applicationPostResponse =  getConnector().registerApplication(applicationPostRequest);
 	   	   
 	   	 assertNotNull(applicationPostResponse);
-	   	/*assertEquals("200", applicationPostResponse.getStatusCode() ); */
+	   	
 	   	
 	}
 

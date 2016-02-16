@@ -26,7 +26,7 @@ public class DeleteMembershipByIdTestCases extends CiscoSparkAbstractTestCases {
 		String membershipId = getMembershipId();
 		StatusResponse deleteMemeberShip = getConnector().deleteMembershipById(membershipId);
 	    assertNotNull(deleteMemeberShip);
-	   /* assertEquals("200", deleteMemeberShip.getStatusCode());*/
+	  
 	   
 	}
 

@@ -8,10 +8,18 @@ import java.util.List;
 
 import org.mule.modules.spark.bean.ApplicationPostRequest;
 import org.mule.modules.spark.bean.RoomsIdPutRequest;
+import org.mule.modules.spark.bean.RoomsPostRequest;
 import org.mule.modules.spark.bean.WebhooksIdPutRequest;
 
 public class TestDataBuilder {
 
+	
+	public static RoomsPostRequest  getRoomsPostRequest()
+	{
+		RoomsPostRequest roomsPostRequest =new RoomsPostRequest();
+	    roomsPostRequest.setTitle("Test Case Room");
+	    return roomsPostRequest;
+	}
 	
 
 	public static ApplicationPostRequest getApplicationPostRequest() {
@@ -45,16 +53,35 @@ public class TestDataBuilder {
 		return webhookReq;
 	}
 
-	public static String getApplicationId()
-	{
-		String applicationId ="Cd9ee9b7439668e31cf118bd77fa85b6a8838a9f86a79e48a78dd933d7160a96f";
-		return applicationId;
-	}
-
 
 	public static String getEmail() {
 		String email = "ratan.siripurapu@eidiko.com";
 		return email;
+	}
+	public static String getName()
+	{
+		String name="Eidiko";
+		return name;
+	}
+	public static String getText()
+	{
+		String text = "Test Case Room";
+		return text;
+	}
+	public static String getResource()
+	{
+		String resource="messages";
+		return resource;
+	}
+	public static String getEvent()
+	{
+		String event = "created";
+		return event;
+	}
+	public static String getUrl()
+	{
+		String url ="https://example.com/Eidiko";
+		return url;
 	}
 
 }

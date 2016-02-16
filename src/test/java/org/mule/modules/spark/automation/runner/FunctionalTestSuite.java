@@ -12,11 +12,9 @@ import org.mule.modules.spark.SparkConnector;
 import org.mule.modules.spark.automation.functional.AddEntityTestCases;
 import org.mule.modules.spark.automation.functional.AddMemeberToRoomTestCases;
 import org.mule.modules.spark.automation.functional.CreateRoomsTestCases;
-import org.mule.modules.spark.automation.functional.DeleteApplicationByIdTestCases;
 import org.mule.modules.spark.automation.functional.DeleteMembershipByIdTestCases;
 import org.mule.modules.spark.automation.functional.DeleteMessageByIdTestCases;
 import org.mule.modules.spark.automation.functional.DeleteRoomByIdTestCases;
-import org.mule.modules.spark.automation.functional.DeleteSubscriptionByIdTestCases;
 import org.mule.modules.spark.automation.functional.DeleteWebHooksByIdTestCases;
 import org.mule.modules.spark.automation.functional.FetchMetaDataKeyTestCases;
 import org.mule.modules.spark.automation.functional.FetchMetaDataTestCases;
@@ -44,58 +42,42 @@ import org.mule.modules.spark.automation.functional.UpdateWebHookByIdTestCases;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 
 /*@RunWith(Categories.class)
-@IncludeCategory(FunctionalTestSuite.class)*/
+ @IncludeCategory(FunctionalTestSuite.class)*/
 @RunWith(Suite.class)
 @SuiteClasses({
-	
-	AddEntityTestCases.class,
-	AddMemeberToRoomTestCases.class,
-	CreateRoomsTestCases.class,
-	GetApplicationByIdTestCases.class,
-	GetApplicationListTestCases.class,
-	GetMembershipByIdTestCases.class,
-	GetMemberShipTestCases.class,
-	GetMessageByIdTestCases.class,
-	GetMessageTestCases.class,
-	GetPeopleByIdTestCases.class,
-	GetPeopleTestCases.class,
-	GetRoomByIdTestCases.class,
-	GetRoomsTestCases.class,
-	GetSubscriptionByIdTestCases.class,
-	GetSubscriptionTestCases.class,
-	GetWebHookByIdTestCases.class,
-	GetWebHookTestCases.class,
-	PostMessageTestCases.class,
-	PostWebHookTestCases.class,
-	RegisterApplicationTestCases.class,
-	UpdateApplicationByIdTestCases.class,
-	UpdateMemberShipByIdTestCases.class,
-	UpdateRoomByIdTestCases.class,
-	UpdateWebHookByIdTestCases.class,
-	FetchMetaDataKeyTestCases.class,
-	FetchMetaDataTestCases.class,
-	DeleteApplicationByIdTestCases.class,
-	DeleteMembershipByIdTestCases.class,
-	DeleteMessageByIdTestCases.class,
-	DeleteRoomByIdTestCases.class,
-	DeleteSubscriptionByIdTestCases.class,
-	DeleteWebHooksByIdTestCases.class	
+
+AddEntityTestCases.class, AddMemeberToRoomTestCases.class,
+		CreateRoomsTestCases.class, GetApplicationByIdTestCases.class,
+		GetApplicationListTestCases.class, GetMembershipByIdTestCases.class,
+		GetMemberShipTestCases.class, GetMessageByIdTestCases.class,
+		GetMessageTestCases.class, GetPeopleByIdTestCases.class,
+		GetPeopleTestCases.class, GetRoomByIdTestCases.class,
+		GetRoomsTestCases.class, GetSubscriptionByIdTestCases.class,
+		GetSubscriptionTestCases.class, GetWebHookByIdTestCases.class,
+		GetWebHookTestCases.class, PostMessageTestCases.class,
+		PostWebHookTestCases.class, RegisterApplicationTestCases.class,
+		UpdateApplicationByIdTestCases.class,
+		UpdateMemberShipByIdTestCases.class, UpdateRoomByIdTestCases.class,
+		UpdateWebHookByIdTestCases.class, FetchMetaDataKeyTestCases.class,
+		FetchMetaDataTestCases.class, DeleteMembershipByIdTestCases.class,
+		DeleteMessageByIdTestCases.class, DeleteRoomByIdTestCases.class,
+		DeleteWebHooksByIdTestCases.class
 
 })
 public class FunctionalTestSuite {
 
-  @BeforeClass
-  public static void initialiseSuite() {
+	@BeforeClass
+	public static void initialiseSuite() {
 
-    ConnectorTestContext.initialize(SparkConnector.class);
+		ConnectorTestContext.initialize(SparkConnector.class);
 
-  }
+	}
 
-  @AfterClass
-  public static void shutdownSuite() {
+	@AfterClass
+	public static void shutdownSuite() {
 
-    ConnectorTestContext.shutDown();
+		ConnectorTestContext.shutDown();
 
-  }
+	}
 
 }

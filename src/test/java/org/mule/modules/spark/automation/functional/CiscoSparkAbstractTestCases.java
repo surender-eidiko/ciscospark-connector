@@ -61,15 +61,10 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 
 	  }	
 	
-	public static RoomsPostRequest  getRoomsPostRequest()
-	{
-		RoomsPostRequest roomsPostRequest =new RoomsPostRequest();
-	    roomsPostRequest.setTitle("Test Case Room");
-	    return roomsPostRequest;
-	}
+	
 	public String getRoomId()
 	{
-		 RoomsPostRequest roomsPostRequest = getRoomsPostRequest();
+		 RoomsPostRequest roomsPostRequest = TestDataBuilder.getRoomsPostRequest();
 	     RoomsPostResponse response=  getConnector().createRooms(roomsPostRequest);
 	     String roomid = response.getId();
 	     return roomid;
@@ -91,7 +86,7 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 		   String id = getRoomId();
 		  MessagesPostRequest postReq = new MessagesPostRequest();
 		  postReq.setRoomId(id);
-		  postReq.setText("Test Case Room");
+		  postReq.setText(TestDataBuilder.getText());
 		  postReq.setFiles(null);
 		  
 		  return postReq;
@@ -101,11 +96,11 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 		
 		   String id = getRoomId();
 		 WebhooksPostRequest webReq = new WebhooksPostRequest();
-		  webReq.setName("Eidiko");
-		  webReq.setResource("messages");
-		  webReq.setEvent("created");
+		  webReq.setName(TestDataBuilder.getName());
+		  webReq.setResource(TestDataBuilder.getResource());
+		  webReq.setEvent(TestDataBuilder.getEvent());
 		  webReq.setFilter("roomId="+id);
-		  webReq.setTargetUrl("https://example.com/Eidiko");
+		  webReq.setTargetUrl(TestDataBuilder.getUrl());
 		  return webReq;
 	}
 	public  MembershipsIdPutRequest getMembershipsIdPutRequest()
@@ -160,7 +155,7 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 	 }
 	 
 	 public String getPersonId() {
-		 PeopleGetResponse people = getConnector().getPeople("ratan.siripurapu@eidiko.com", null,5);
+		 PeopleGetResponse people = getConnector().getPeople(TestDataBuilder.getEmail(), null,5);
 		  String personId = people.getItems().get(0).getId(); 
 		  return personId; 
 		 }
