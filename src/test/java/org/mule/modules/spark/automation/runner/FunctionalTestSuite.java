@@ -5,9 +5,8 @@ package org.mule.modules.spark.automation.runner;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.experimental.categories.Categories;
-import org.junit.experimental.categories.Categories.IncludeCategory;
 import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 import org.mule.modules.spark.SparkConnector;
 import org.mule.modules.spark.automation.functional.AddEntityTestCases;
@@ -44,8 +43,9 @@ import org.mule.modules.spark.automation.functional.UpdateRoomByIdTestCases;
 import org.mule.modules.spark.automation.functional.UpdateWebHookByIdTestCases;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 
-@RunWith(Categories.class)
-@IncludeCategory(FunctionalTestSuite.class)
+/*@RunWith(Categories.class)
+@IncludeCategory(FunctionalTestSuite.class)*/
+@RunWith(Suite.class)
 @SuiteClasses({
 	
 	AddEntityTestCases.class,
