@@ -24,4 +24,21 @@ The Demo is used to create a room in Spark. The Spark connector creates a room f
 
 To create a room in connector properties select 'create rooms' operation and provide a room name in Title
 
-To run the demo open a browser and type http://localhost:8081/. It will trigger the flow.
+
+To run the demo open a browser and type http://localhost:8081/. It will trigger the flow. And you will see the below reply in the browser
+
+
+{
+
+"statusCode":"200","statusMessage":null,
+
+"id":"Y2lzY29zcGFyazovL3VzL1JPT00vODdjMGI0ZDAtOWYzMy0xMWU1LWFmNTQtODEyY2M0ZmM1YTNk",
+
+"title":"Mule Integration With Spark",
+
+"sipAddress":null,"created":"2015-12-10T11:45:37.437Z",
+
+"additionalProperties":{}
+
+}
+
