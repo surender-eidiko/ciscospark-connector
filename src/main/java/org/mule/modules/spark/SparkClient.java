@@ -11,12 +11,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
 import org.codehaus.jackson.map.ObjectMapper;
-import org.mule.modules.spark.bean.ApplicationGetResponse;
-import org.mule.modules.spark.bean.ApplicationIdGetResponse;
-import org.mule.modules.spark.bean.ApplicationIdPutRequest;
-import org.mule.modules.spark.bean.ApplicationIdPutResponse;
-import org.mule.modules.spark.bean.ApplicationPostRequest;
-import org.mule.modules.spark.bean.ApplicationPostResponse;
 import org.mule.modules.spark.bean.MembershipsGetResponse;
 import org.mule.modules.spark.bean.MembershipsIdGetResponse;
 import org.mule.modules.spark.bean.MembershipsIdPutRequest;
@@ -72,59 +66,7 @@ public class SparkClient {
     this.apiResource = this.client.resource(getConnector().getConfig()
       .getUrl());
   }
-
-  public ApplicationGetResponse getApplicationList(
-    Boolean showSubscriptionCount, Integer maxLimit) {
-    WebResource webResource = getApiResource().path("applications");
-    MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-    if (showSubscriptionCount != null) {
-      queryParams.add("showSubscriptionCount",
-        String.valueOf(showSubscriptionCount));
-    }
-    if (maxLimit != null) {
-      queryParams.add("max", String.valueOf(maxLimit));
-    }
-
-    webResource = webResource.queryParams(queryParams);
-    return (ApplicationGetResponse) getData(webResource,
-      ApplicationGetResponse.class);
-  }
-
-  public ApplicationPostResponse registerApplication(
-    ApplicationPostRequest applicationPostRequest) {
-    WebResource webResource = getApiResource().path("applications");
-    return (ApplicationPostResponse) postData(applicationPostRequest,
-      webResource, ApplicationPostResponse.class);
-  }
-
-  public ApplicationIdGetResponse getApplicationById(String applicationId,
-    Boolean showSubscriptionCount) {
-    WebResource webResource = getApiResource().path("applications").path(
-      applicationId);
-    if (showSubscriptionCount != null) {
-      MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-      queryParams.add("showSubscriptionCount",
-        String.valueOf(showSubscriptionCount));
-      webResource = webResource.queryParams(queryParams);
-    }
-
-    return (ApplicationIdGetResponse) getData(webResource,
-      ApplicationIdGetResponse.class);
-  }
-
-  public ApplicationIdPutResponse updateApplicationById(String applicationId,
-    ApplicationIdPutRequest updateApplication) {
-    WebResource webResource = getApiResource().path("applications").path(
-      applicationId);
-    return (ApplicationIdPutResponse) putData(updateApplication,
-      webResource, ApplicationIdPutResponse.class);
-  }
-
-  public StatusResponse deleteApplicationById(String applicationId) {
-    WebResource webResource = getApiResource().path("applications").path(
-      applicationId);
-    return (StatusResponse) deleteData(webResource);
-  }
+ 
 
   public MembershipsGetResponse getMemberships(String roomId,
     String personId, String personEmail, Integer maxLimit) {
@@ -165,6 +107,7 @@ public class SparkClient {
     MembershipsIdPutRequest membershipsIdPutRequest) {
     WebResource webResource = getApiResource().path("memberships").path(
       membershipId);
+    
     return (MembershipsIdPutResponse) putData(membershipsIdPutRequest,
       webResource, MembershipsIdPutResponse.class);
   }
@@ -295,11 +238,7 @@ public class SparkClient {
       SubscriptionsIdGetResponse.class);
   }
 
-  public StatusResponse deleteSubscriptionsById(String subscriptionId) {
-    WebResource webResource = getApiResource().path("subscriptions").path(
-      subscriptionId);
-    return (StatusResponse) deleteData(webResource);
-  }
+  
 
   public WebhooksGetResponse getWebHooks(Integer maxLimit) {
     WebResource webResource = getApiResource().path("webhooks");
@@ -365,9 +304,10 @@ public class SparkClient {
     builder.type(MediaType.APPLICATION_JSON);
     ObjectMapper mapper = new ObjectMapper();
     String input = convertObjectToString(request, mapper);
-
+    
     ClientResponse clientResponse = builder
       .put(ClientResponse.class, input);
+    
 
     return buildResponseObject(returnClass, clientResponse);
   }
@@ -396,6 +336,7 @@ public class SparkClient {
 
   private Object buildResponseObject(Class<?> returnClass,
     ClientResponse clientResponse) {
+	 
     StatusResponse statusResponse = null;
     if (clientResponse.getStatus() == 200) {
       statusResponse = (StatusResponse) clientResponse

@@ -26,6 +26,7 @@ public class GetPeopleByIdTestCases extends CiscoSparkAbstractTestCases {
 		 PeopleIdGetResponse peopleid = getConnector().getPeopleById(personId);
 		  assertNotNull(peopleid);
 		  assertEquals("200", peopleid.getStatusCode() );
+		  
 	}
 
 }

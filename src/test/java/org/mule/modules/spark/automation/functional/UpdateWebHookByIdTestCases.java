@@ -3,6 +3,8 @@
  */
 package org.mule.modules.spark.automation.functional;
 
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -25,6 +27,8 @@ public class UpdateWebHookByIdTestCases extends CiscoSparkAbstractTestCases {
 		  WebhooksIdPutRequest webhookReq  = TestDataBuilder.getWebhooksIdPutRequest();
 		  WebhooksIdPutResponse webUpdate = getConnector().updateWebHooksById(webHooksId, webhookReq);
 		  assertNotNull(webUpdate);
+		  
+		  assertEquals("200", webUpdate.getStatusCode() );
 	}
 
 }

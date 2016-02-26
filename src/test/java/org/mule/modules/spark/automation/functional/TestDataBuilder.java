@@ -3,10 +3,7 @@
  */
 package org.mule.modules.spark.automation.functional;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import org.mule.modules.spark.bean.ApplicationPostRequest;
 import org.mule.modules.spark.bean.RoomsIdPutRequest;
 import org.mule.modules.spark.bean.RoomsPostRequest;
 import org.mule.modules.spark.bean.WebhooksIdPutRequest;
@@ -22,21 +19,6 @@ public class TestDataBuilder {
 	}
 	
 
-	public static ApplicationPostRequest getApplicationPostRequest() {
-		ApplicationPostRequest applicationPostRequest = new ApplicationPostRequest();
-		applicationPostRequest.setLogo("test");
-		applicationPostRequest.setName("Eidiko");
-		List<String> redirectUrls = new ArrayList<String>();
-		redirectUrls.add("www.eidiko.com");
-		applicationPostRequest.setRedirectUrls(redirectUrls);
-		List<String> contactEmails = new ArrayList<String>();
-		contactEmails.add(TestDataBuilder.getEmail());
-		applicationPostRequest.setContactEmails(contactEmails);
-		List<String> keywords = new ArrayList<String>();
-		keywords.add("eidiko.com");
-		applicationPostRequest.setKeywords(keywords);
-		return applicationPostRequest;
-	}
 
 	
 
@@ -49,7 +31,8 @@ public class TestDataBuilder {
 	public static WebhooksIdPutRequest getWebhooksIdPutRequest() {
 		WebhooksIdPutRequest webhookReq = new WebhooksIdPutRequest();
 		webhookReq.setName("Eidiko");
-		webhookReq.setTargetUrl("www.eidiko.com");
+		webhookReq.setTargetUrl("http://www.eidiko.com");
+		
 		return webhookReq;
 	}
 

@@ -29,7 +29,9 @@ public class PostMessageTestCases extends CiscoSparkAbstractTestCases {
 		  MessagesPostRequest postReq = getMessagesPostRequest();   
 		  MessagesPostResponse  msg = getConnector().postMessages(postReq);
 		  assertNotNull(msg);
-		  assertEquals("200", msg.getStatusCode() ); 
+		  assertEquals("200", msg.getStatusCode() );
+		  assertEquals(postReq.getRoomId(), msg.getRoomId());
+		 
 		  
 	}
 }

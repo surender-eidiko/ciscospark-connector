@@ -20,7 +20,7 @@ public class ConnectorConfig {
   @Configurable
   @Optional
   @RestHeaderParam("Authorization")
-  private String authorization = "Bearer ODY5MDBiYjctNDY4NS00ODI0LThhZjktNTUxMTcyNGI3OWMyZjRiNWRhM2MtZmZk";
+  private String authorization = "Bearer NzgzMjMwNzgtZTM5Yy00ZDIxLWE3YWYtZDJiM2MyNmQ1MzA2YzUyYWNmYTYtYzIz";
 
   public String getUrl() {
     return url;

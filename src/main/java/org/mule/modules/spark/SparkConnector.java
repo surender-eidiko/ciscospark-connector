@@ -15,12 +15,6 @@ import org.mule.api.annotations.lifecycle.Start;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.MetaDataKeyParam;
 import org.mule.api.annotations.param.Optional;
-import org.mule.modules.spark.bean.ApplicationGetResponse;
-import org.mule.modules.spark.bean.ApplicationIdGetResponse;
-import org.mule.modules.spark.bean.ApplicationIdPutRequest;
-import org.mule.modules.spark.bean.ApplicationIdPutResponse;
-import org.mule.modules.spark.bean.ApplicationPostRequest;
-import org.mule.modules.spark.bean.ApplicationPostResponse;
 import org.mule.modules.spark.bean.MembershipsGetResponse;
 import org.mule.modules.spark.bean.MembershipsIdGetResponse;
 import org.mule.modules.spark.bean.MembershipsIdPutRequest;
@@ -75,74 +69,6 @@ public class SparkConnector {
     setClient(new SparkClient(this));
   }
 
-  /**
-   * This method gets the list of application
-   * {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:get-application-list}
-   * 
-   * @param showSubscriptionCount , To show the subscriptionCount metric in the response, set this value to true.<BR>
-   * @param maxLimit , Limits the number of applications in the response.<BR>
-   * @return ApplicationGetResponse object
- */
-@Processor
-  public ApplicationGetResponse getApplicationList(
-    @Optional Boolean showSubscriptionCount, @Optional Integer maxLimit) {
-    return getClient().getApplicationList(showSubscriptionCount, maxLimit);
-  }
-
-  /**
-   * This method registers the application
-   * {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:get-application-list}
-   * 
-   * @param applicationPostRequest , A registered application has its own access token that it uses to perform Spark operations on behalf of another user.<BR>
-   * @return ApplicationPostResponse object
-   */
-@Processor
-  public ApplicationPostResponse registerApplication(
-    ApplicationPostRequest applicationPostRequest) {
-    return getClient().registerApplication(applicationPostRequest);
-  }
-
-  /**
-   * This method gets the application by Id
-   * {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:get-application-by-id}
-   * 
-   * @param applicationId , using that applicationId it returns applications.<BR>
-   * @param showSubscriptionCount , To show the subscriptionCount metric in the response, set this value to true.<BR>
-   * @return ApplicationIdGetResponse Object
-   */
-@Processor
-  public ApplicationIdGetResponse getApplicationById(String applicationId,
-    @Optional Boolean showSubscriptionCount) {
-    return getClient().getApplicationById(applicationId,
-      showSubscriptionCount);
-  }
-
-  /**
-   * This method updates applications by applicationId
-   * {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:update-application-by-id}
-   * 
-   * @param applicationId , Using that applicationId  It update the applications.<BR>
-   * @param updateApplication , Updates properties for an application, by application ID.<BR>
-   * @return ApplicationIdPutResponse Object
-   */
-@Processor
-  public ApplicationIdPutResponse updateApplicationById(String applicationId,
-		  @Default("#[payload]") ApplicationIdPutRequest updateApplication) {
-    return getClient().updateApplicationById(applicationId,
-      updateApplication);
-  }
-
-  /**
-   * This method deletes the application using applicationId
-   * {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:delete-application-by-id}
-   * 
-   * @param applicationId , Using that applicationId  It delete the applications.<BR>
-   * @return StatusResponse object for delete application
-   */
-@Processor
-  public StatusResponse deleteApplicationById(String applicationId) {
-    return getClient().deleteApplicationById(applicationId);
-  }
 
   /**
    * This method gets the Members using roomId , personId ,personEmail
@@ -378,16 +304,8 @@ public class SparkConnector {
     return getClient().getSubscriptionsById(subscriptionId);
   }
 
-  /**
-   * This method deletes a single subscription by ID
-   * {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:delete-subscriptions-by-id}
-   * @param subscriptionId ,the subscriptionId.<BR>
-   * @return StatusResponse Object
-   */
-@Processor
-  public StatusResponse deleteSubscriptionsById(String subscriptionId) {
-    return getClient().deleteSubscriptionsById(subscriptionId);
-  }
+ 
+
 
   /**
    * This method Returns a list of webhooks

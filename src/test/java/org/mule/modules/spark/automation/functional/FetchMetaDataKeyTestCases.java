@@ -47,6 +47,7 @@ public class FetchMetaDataKeyTestCases extends CiscoSparkAbstractTestCases {
 		      // Assert on MetaDataKeys
 		      assertNotNull(user);
 		      assertNotNull(book);
+		      
 		     
 		}
 

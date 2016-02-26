@@ -28,6 +28,7 @@ public class GetMembershipByIdTestCases extends CiscoSparkAbstractTestCases {
 				membershipId);
 		assertNotNull(memberId);
 		 assertEquals("200", memberId.getStatusCode() );
+		 
 
 	}
 

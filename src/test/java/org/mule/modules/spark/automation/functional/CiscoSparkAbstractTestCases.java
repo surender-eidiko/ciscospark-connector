@@ -5,8 +5,6 @@ package org.mule.modules.spark.automation.functional;
 
 import org.junit.Before;
 import org.mule.modules.spark.SparkConnector;
-import org.mule.modules.spark.bean.ApplicationGetResponse;
-import org.mule.modules.spark.bean.ApplicationGetResponseItem;
 import org.mule.modules.spark.bean.MembershipsIdPutRequest;
 import org.mule.modules.spark.bean.MembershipsPostRequest;
 import org.mule.modules.spark.bean.MembershipsPostResponse;
@@ -101,14 +99,17 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 		  webReq.setEvent(TestDataBuilder.getEvent());
 		  webReq.setFilter("roomId="+id);
 		  webReq.setTargetUrl(TestDataBuilder.getUrl());
+		
 		  return webReq;
 	}
 	public  MembershipsIdPutRequest getMembershipsIdPutRequest()
 	{
 		
 		   String id = getRoomId();
+		  
 		String membershipId = getMembershipId();
-		MembershipsIdPutRequest memberReq = new MembershipsIdPutRequest();
+		
+		  MembershipsIdPutRequest memberReq = new MembershipsIdPutRequest();
 		  memberReq.setPersonEmail(TestDataBuilder.getEmail());
 		  memberReq.setRoomId(id);
 		  memberReq.setId(membershipId);
@@ -140,6 +141,7 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 		 WebhooksPostRequest webReq = getWebhooksPostRequest();
 		  WebhooksPostResponse webHookResp = getConnector().postWebHooks(webReq);
 		  String webHooksId = webHookResp.getId();
+
 		   return webHooksId;
 		  }
 	 
@@ -159,15 +161,7 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 		  String personId = people.getItems().get(0).getId(); 
 		  return personId; 
 		 }
-	 public  String getApplicationId() {
-		 ApplicationGetResponse app =  getConnector().getApplicationList(true, 1000);
-		 String applicationId =null ;
-		 if(app.getItems().size() >0 ){
-			 ApplicationGetResponseItem applicationResponseItem =  app.getItems().get(0);
-			 applicationId = applicationResponseItem.getId();
-		 }
-		 return applicationId;
-	}
+	
 	
 		 
 }

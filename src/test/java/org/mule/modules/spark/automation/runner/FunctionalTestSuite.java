@@ -18,8 +18,6 @@ import org.mule.modules.spark.automation.functional.DeleteRoomByIdTestCases;
 import org.mule.modules.spark.automation.functional.DeleteWebHooksByIdTestCases;
 import org.mule.modules.spark.automation.functional.FetchMetaDataKeyTestCases;
 import org.mule.modules.spark.automation.functional.FetchMetaDataTestCases;
-import org.mule.modules.spark.automation.functional.GetApplicationByIdTestCases;
-import org.mule.modules.spark.automation.functional.GetApplicationListTestCases;
 import org.mule.modules.spark.automation.functional.GetMemberShipTestCases;
 import org.mule.modules.spark.automation.functional.GetMembershipByIdTestCases;
 import org.mule.modules.spark.automation.functional.GetMessageByIdTestCases;
@@ -34,8 +32,6 @@ import org.mule.modules.spark.automation.functional.GetWebHookByIdTestCases;
 import org.mule.modules.spark.automation.functional.GetWebHookTestCases;
 import org.mule.modules.spark.automation.functional.PostMessageTestCases;
 import org.mule.modules.spark.automation.functional.PostWebHookTestCases;
-import org.mule.modules.spark.automation.functional.RegisterApplicationTestCases;
-import org.mule.modules.spark.automation.functional.UpdateApplicationByIdTestCases;
 import org.mule.modules.spark.automation.functional.UpdateMemberShipByIdTestCases;
 import org.mule.modules.spark.automation.functional.UpdateRoomByIdTestCases;
 import org.mule.modules.spark.automation.functional.UpdateWebHookByIdTestCases;
@@ -47,16 +43,15 @@ import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 @SuiteClasses({
 
 AddEntityTestCases.class, AddMemeberToRoomTestCases.class,
-		CreateRoomsTestCases.class, GetApplicationByIdTestCases.class,
-		GetApplicationListTestCases.class, GetMembershipByIdTestCases.class,
+		CreateRoomsTestCases.class,
+		GetMembershipByIdTestCases.class,
 		GetMemberShipTestCases.class, GetMessageByIdTestCases.class,
 		GetMessageTestCases.class, GetPeopleByIdTestCases.class,
 		GetPeopleTestCases.class, GetRoomByIdTestCases.class,
 		GetRoomsTestCases.class, GetSubscriptionByIdTestCases.class,
 		GetSubscriptionTestCases.class, GetWebHookByIdTestCases.class,
 		GetWebHookTestCases.class, PostMessageTestCases.class,
-		PostWebHookTestCases.class, RegisterApplicationTestCases.class,
-		UpdateApplicationByIdTestCases.class,
+		PostWebHookTestCases.class,
 		UpdateMemberShipByIdTestCases.class, UpdateRoomByIdTestCases.class,
 		UpdateWebHookByIdTestCases.class, FetchMetaDataKeyTestCases.class,
 		FetchMetaDataTestCases.class, DeleteMembershipByIdTestCases.class,

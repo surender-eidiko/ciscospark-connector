@@ -6,6 +6,7 @@ package org.mule.modules.spark.automation.functional;
 
 
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -28,6 +29,6 @@ public class DeleteWebHooksByIdTestCases extends CiscoSparkAbstractTestCases {
 		String webHookId = getWebHooksId();
 		StatusResponse deleteWebHook = getConnector().deleteWebHooksById(webHookId);
 	    assertNotNull(deleteWebHook);
-	  	
+	    assertEquals("204", deleteWebHook.getStatusCode() );
 	}
 }
