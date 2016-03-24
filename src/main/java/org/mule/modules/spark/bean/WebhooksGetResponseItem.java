@@ -5,7 +5,11 @@ package org.mule.modules.spark.bean;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.annotation.Generated;
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @Generated("org.jsonschema2pojo")
 @JsonPropertyOrder({"id", "resource", "event", "filter", "targetUrl", "name",
   "created"})
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WebhooksGetResponseItem {
 
   /**

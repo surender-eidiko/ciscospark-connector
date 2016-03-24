@@ -5,9 +5,13 @@ package org.mule.modules.spark.bean;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.annotation.Generated;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 @Generated("org.jsonschema2pojo")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WebhooksPostResponse extends StatusResponse {
 
   /**

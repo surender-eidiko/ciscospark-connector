@@ -38,7 +38,7 @@ public class TestDataBuilder {
 
 
 	public static String getEmail() {
-		String email = "ratan.siripurapu@eidiko.com";
+		String email = "venkata.ravi@eidiko.com";
 		return email;
 	}
 	public static String getName()

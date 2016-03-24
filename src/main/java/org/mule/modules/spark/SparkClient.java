@@ -92,6 +92,7 @@ public class SparkClient {
   public MembershipsPostResponse addMemberToRoom(
     MembershipsPostRequest membershipsPostRequest) {
     WebResource webResource = getApiResource().path("memberships");
+   
     return (MembershipsPostResponse) postData(membershipsPostRequest,
       webResource, MembershipsPostResponse.class);
   }
@@ -293,8 +294,10 @@ public class SparkClient {
     builder.type(MediaType.APPLICATION_JSON);
     ObjectMapper mapper = new ObjectMapper();
     String input = convertObjectToString(request, mapper);
+   
     ClientResponse clientResponse = builder.post(ClientResponse.class,
       input);
+ 
     return buildResponseObject(returnClass, clientResponse);
   }
 
@@ -355,9 +358,9 @@ public class SparkClient {
         log.log(Level.SEVERE, "Error", ex);
       }
     }
-
+  
     return statusResponse;
-
+   
   }
 
   private String convertObjectToString(Object request, ObjectMapper mapper) {

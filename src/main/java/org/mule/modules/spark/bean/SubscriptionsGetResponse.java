@@ -10,7 +10,10 @@ import java.util.Map;
 
 import javax.annotation.Generated;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 @Generated("org.jsonschema2pojo")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SubscriptionsGetResponse extends StatusResponse {
 
   private List<SubscriptionsGetResponseItem> items = new ArrayList<SubscriptionsGetResponseItem>();

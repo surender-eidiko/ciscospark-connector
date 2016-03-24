@@ -70,7 +70,7 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 	public  MembershipsPostRequest getMembershipsPostRequest()
 	{
 		
-		   String id = getRoomId();
+		  String id = getRoomId();
 		  MembershipsPostRequest memberReqst = new MembershipsPostRequest();
 	      memberReqst.setRoomId(id);
 	      memberReqst.setPersonEmail(TestDataBuilder.getEmail());
@@ -102,13 +102,29 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 		
 		  return webReq;
 	}
+	
+	
+	 public String getMembershipId() {
+		  
+			
+		  MembershipsPostRequest memberReqst = getMembershipsPostRequest();
+		  
+		  MembershipsPostResponse addMemeber =
+		  getConnector().addMemberToRoom(memberReqst);
+		  
+		  String membershipId = addMemeber.getId();
+		 
+		
+		  return membershipId; 
+		  
+		 }
 	public  MembershipsIdPutRequest getMembershipsIdPutRequest()
 	{
 		
 		   String id = getRoomId();
-		  
+		 
 		String membershipId = getMembershipId();
-		
+		  
 		  MembershipsIdPutRequest memberReq = new MembershipsIdPutRequest();
 		  memberReq.setPersonEmail(TestDataBuilder.getEmail());
 		  memberReq.setRoomId(id);
@@ -116,18 +132,7 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 		  return memberReq;
 	}
 
-	 public String getMembershipId() {
-	  
 	
-	  MembershipsPostRequest memberReqst = getMembershipsPostRequest();
-	 
-	  MembershipsPostResponse addMemeber =
-	  getConnector().addMemberToRoom(memberReqst);
-	  String membershipId = addMemeber.getId();
-	  
-	  return membershipId; 
-	  
-	 }
 	 public String getMessageId() {
 		  
 		  MessagesPostRequest postReq = getMessagesPostRequest();

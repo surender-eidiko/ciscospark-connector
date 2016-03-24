@@ -10,6 +10,8 @@ import java.util.Map;
 
 import javax.annotation.Generated;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
 @JsonPropertyOrder({"items"})
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WebhooksGetResponse extends StatusResponse {
 
   @JsonProperty("items")

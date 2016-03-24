@@ -10,9 +10,11 @@ import java.util.Map;
 
 import javax.annotation.Generated;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.mule.modules.spark.bean.StatusResponse;
 
 @Generated("org.jsonschema2pojo")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ApplicationIdGetResponse extends StatusResponse {
   
     /**

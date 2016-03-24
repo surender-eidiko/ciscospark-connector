@@ -48,6 +48,7 @@
 	</dependencies>
 
 
+	
 	<distributionManagement>
 		<repository>
 			<id>mule-ee-releases</id>
