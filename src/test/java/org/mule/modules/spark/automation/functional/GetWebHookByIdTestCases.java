@@ -24,7 +24,7 @@ public class GetWebHookByIdTestCases extends CiscoSparkAbstractTestCases {
 	public void testGetWebHookById() {
 		String webHookId = getWebHooksId();
 		WebhooksIdGetResponse webId = getConnector().getWebHooksById(
-				webHookId);
+				webHookId,null);
 		assertNotNull(webId);
 		assertEquals("200", webId.getStatusCode() );
 	}

@@ -23,7 +23,7 @@ public class GetMessageByIdTestCases extends CiscoSparkAbstractTestCases {
 	public void testGetMessageById()
 	{  
 		String messageId = getMessageId();
-		MessagesIdGetResponse mssgId = getConnector().getMessagesById(messageId);
+		MessagesIdGetResponse mssgId = getConnector().getMessagesById(messageId,null);
 		 assertNotNull(mssgId);
 		 assertEquals("200", mssgId.getStatusCode() );
 	}

@@ -26,7 +26,7 @@ public class GetMemberShipTestCases extends CiscoSparkAbstractTestCases {
 	{
 		
 		String id = getRoomId();
-		MembershipsGetResponse member = getConnector().getMemberships(id, null,TestDataBuilder.getEmail(), 5);
+		MembershipsGetResponse member = getConnector().getMemberships(id, null,TestDataBuilder.getEmail(), 5, null);
 	    assertNotNull(member);
 	    assertEquals("200", member.getStatusCode() );
 	    

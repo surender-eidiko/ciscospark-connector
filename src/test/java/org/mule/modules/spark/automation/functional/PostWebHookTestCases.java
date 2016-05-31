@@ -25,7 +25,7 @@ public class PostWebHookTestCases extends CiscoSparkAbstractTestCases {
 	public void testPostWebHook()
 	{
 		WebhooksPostRequest webReq = getWebhooksPostRequest();
-		  WebhooksPostResponse webHookResp = getConnector().postWebHooks(webReq);
+		  WebhooksPostResponse webHookResp = getConnector().postWebHooks(webReq, null);
 		  assertNotNull(webHookResp);
 		  assertEquals("200", webHookResp.getStatusCode() ); 
 		  assertEquals(webReq.getName(), webHookResp.getName());

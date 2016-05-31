@@ -25,7 +25,7 @@ public class GetMessageTestCases extends CiscoSparkAbstractTestCases {
 	{
 		
 		String id = getRoomId();
-		 MessagesGetResponse msgResponse = getConnector().getMessages(id,null,null,5);
+		 MessagesGetResponse msgResponse = getConnector().getMessages(id,null,null,5,null);
 		 assertNotNull(msgResponse);
 		 assertEquals("200", msgResponse.getStatusCode() );
 	}

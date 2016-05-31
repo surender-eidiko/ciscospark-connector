@@ -27,7 +27,7 @@ public class DeleteWebHooksByIdTestCases extends CiscoSparkAbstractTestCases {
 	public void testDeleteWebHooksById()
 	{
 		String webHookId = getWebHooksId();
-		StatusResponse deleteWebHook = getConnector().deleteWebHooksById(webHookId);
+		StatusResponse deleteWebHook = getConnector().deleteWebHooksById(webHookId, null);
 	    assertNotNull(deleteWebHook);
 	    assertEquals("204", deleteWebHook.getStatusCode() );
 	}

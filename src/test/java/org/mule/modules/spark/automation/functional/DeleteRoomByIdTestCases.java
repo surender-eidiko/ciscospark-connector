@@ -26,7 +26,7 @@ public class DeleteRoomByIdTestCases extends CiscoSparkAbstractTestCases {
 	public void testDeleteRoomById() {
 		
 		String roomId = getRoomId();
-		StatusResponse deleteRoomId = getConnector().deleteRoomById(roomId);
+		StatusResponse deleteRoomId = getConnector().deleteRoomById(roomId, null);
 		assertNotNull(deleteRoomId);
 		assertEquals("204", deleteRoomId.getStatusCode() );
 	}

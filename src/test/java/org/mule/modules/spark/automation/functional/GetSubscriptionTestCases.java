@@ -26,7 +26,7 @@ public class GetSubscriptionTestCases extends CiscoSparkAbstractTestCases {
 	public void testGetSubscription() {
 		String personId = getPersonId();
 		SubscriptionsGetResponse subscription = getConnector()
-				.getSubscriptions(personId, 5);
+				.getSubscriptions(personId, 5,null);
 		assertNotNull(subscription);
 		 assertEquals("200", subscription.getStatusCode() );
 	}

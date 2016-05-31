@@ -25,7 +25,7 @@ public class DeleteMessageByIdTestCases extends CiscoSparkAbstractTestCases {
 	public void testDeleteMessageById() {
 		String messageId = getMessageId();
 		StatusResponse deleteMessage = getConnector().deleteMessagesById(
-				messageId);
+				messageId, null);
 		assertNotNull(deleteMessage);
 		assertEquals("204", deleteMessage.getStatusCode() );
 	}

@@ -83,9 +83,9 @@ public class SparkConnector {
 @Processor
   public MembershipsGetResponse getMemberships(@Optional String roomId,
     @Optional String personId, @Optional String personEmail,
-    @Optional Integer maxLimit) {
+    @Optional Integer maxLimit, @Optional String token) {
     return getClient().getMemberships(roomId, personId, personEmail,
-      maxLimit);
+      maxLimit, token);
   }
 
   /**
@@ -97,8 +97,8 @@ public class SparkConnector {
    */
 @Processor
   public MembershipsPostResponse addMemberToRoom(
-    MembershipsPostRequest membershipsPostRequest) {
-    return getClient().addMemberToRoom(membershipsPostRequest);
+    MembershipsPostRequest membershipsPostRequest, @Optional String token) {
+    return getClient().addMemberToRoom(membershipsPostRequest,token);
   }
 
   /**
@@ -109,8 +109,8 @@ public class SparkConnector {
    * @return MembershipsIdGetResponse
    */
 @Processor
-  public MembershipsIdGetResponse getMembershipById(String membershipId) {
-    return getClient().getMembershipById(membershipId);
+  public MembershipsIdGetResponse getMembershipById(String membershipId, @Optional String token) {
+    return getClient().getMembershipById(membershipId, token);
   }
 
   /**
@@ -123,9 +123,9 @@ public class SparkConnector {
    */
 @Processor
   public MembershipsIdPutResponse updateMembershipById(String membershipId,
-		  @Default("#[payload]") MembershipsIdPutRequest membershipsIdPutRequest) {
+		  @Default("#[payload]") MembershipsIdPutRequest membershipsIdPutRequest,  @Optional String token) {
     return getClient().updateMembershipById(membershipId,
-      membershipsIdPutRequest);
+      membershipsIdPutRequest, token);
   }
 
   /**
@@ -136,8 +136,8 @@ public class SparkConnector {
    * @return StatusResponse Object
    */
 @Processor
-  public StatusResponse deleteMembershipById(String membershipId) {
-    return getClient().deleteMembershipById(membershipId);
+  public StatusResponse deleteMembershipById(String membershipId,  @Optional String token) {
+    return getClient().deleteMembershipById(membershipId, token);
   }
 
   /**
@@ -153,8 +153,8 @@ public class SparkConnector {
 @Processor
   public MessagesGetResponse getMessages(String roomId,
     @Optional String before, @Optional String beforeMessage,
-    @Optional Integer maxLimit) {
-    return getClient().getMessages(roomId, before, beforeMessage, maxLimit);
+    @Optional Integer maxLimit, @Optional String token) {
+    return getClient().getMessages(roomId, before, beforeMessage, maxLimit, token);
   }
 
   /**This method Posts a new message and/or media content into a room.
@@ -165,8 +165,8 @@ public class SparkConnector {
    */
 @Processor
   public MessagesPostResponse postMessages(
-    MessagesPostRequest messagesPostRequest) {
-    return getClient().postMessages(messagesPostRequest);
+    MessagesPostRequest messagesPostRequest, @Optional String token) {
+    return getClient().postMessages(messagesPostRequest, token);
   }
 
   /**
@@ -177,8 +177,8 @@ public class SparkConnector {
    * @return MessagesIdGetResponse Object
    */
 @Processor
-  public MessagesIdGetResponse getMessagesById(String messageId) {
-    return getClient().getMessagesById(messageId);
+  public MessagesIdGetResponse getMessagesById(String messageId, @Optional String token) {
+    return getClient().getMessagesById(messageId, token);
   }
 
   /**
@@ -189,8 +189,8 @@ public class SparkConnector {
    * @return StatusResponse Object
    */
 @Processor
-  public StatusResponse deleteMessagesById(String messageId) {
-    return getClient().deleteMessagesById(messageId);
+  public StatusResponse deleteMessagesById(String messageId,  @Optional String token) {
+    return getClient().deleteMessagesById(messageId, token);
   }
 
   /**
@@ -204,8 +204,8 @@ public class SparkConnector {
    */
 @Processor
   public PeopleGetResponse getPeople(@Optional String email,
-    @Optional String displayName, @Optional Integer maxLimit) {
-    return getClient().getPeople(email, displayName, maxLimit);
+    @Optional String displayName, @Optional Integer maxLimit, @Optional String token) {
+    return getClient().getPeople(email, displayName, maxLimit, token);
   }
 
   /**
@@ -216,8 +216,8 @@ public class SparkConnector {
    * @return PeopleIdGetResponse Object
    */
 @Processor
-  public PeopleIdGetResponse getPeopleById(String uid) {
-    return getClient().getPeopleById(uid);
+  public PeopleIdGetResponse getPeopleById(String uid, @Optional String token) {
+    return getClient().getPeopleById(uid, token);
   }
 
   /**
@@ -230,8 +230,8 @@ public class SparkConnector {
    */
 @Processor
   public RoomsGetResponse getRooms(@Optional Boolean showSipAddress,
-    @Optional Integer maxLimit) {
-    return getClient().getRooms(showSipAddress, maxLimit);
+    @Optional Integer maxLimit, @Optional String token) {
+    return getClient().getRooms(showSipAddress, maxLimit, token);
   }
 
   /**
@@ -241,8 +241,8 @@ public class SparkConnector {
    * @return RoomsPostResponse Object
    */
 @Processor
-  public RoomsPostResponse createRooms(RoomsPostRequest roomsPostRequest) {
-    return getClient().createRooms(roomsPostRequest);
+  public RoomsPostResponse createRooms(RoomsPostRequest roomsPostRequest, @Optional String token) {
+    return getClient().createRooms(roomsPostRequest, token);
   }
 
   /**
@@ -252,8 +252,8 @@ public class SparkConnector {
    * @return RoomsIdGetResponse Object
    */
 @Processor
-  public RoomsIdGetResponse getRoomById(String roomId) {
-    return getClient().getRoomById(roomId);
+  public RoomsIdGetResponse getRoomById(String roomId, @Optional String token) {
+    return getClient().getRoomById(roomId, token);
   }
 
   /**
@@ -265,8 +265,8 @@ public class SparkConnector {
    */
 @Processor
   public RoomsIdPutResponse updateRoomById(String roomId,
-		  @Default("#[payload]") RoomsIdPutRequest roomsIdPutRequest) {
-    return getClient().updateRoomById(roomId, roomsIdPutRequest);
+		  @Default("#[payload]") RoomsIdPutRequest roomsIdPutRequest,  @Optional String token) {
+    return getClient().updateRoomById(roomId, roomsIdPutRequest, token);
   }
 
   /**
@@ -276,8 +276,8 @@ public class SparkConnector {
    * @return StatusResponse Object
    */
 @Processor
-  public StatusResponse deleteRoomById(String roomId) {
-    return getClient().deleteRoomById(roomId);
+  public StatusResponse deleteRoomById(String roomId, @Optional String token) {
+    return getClient().deleteRoomById(roomId, token);
   }
 
   /**
@@ -289,8 +289,8 @@ public class SparkConnector {
    */
 @Processor
   public SubscriptionsGetResponse getSubscriptions(@Default("#[payload]") String personId, 
-    @Optional Integer maxLimit) {
-    return getClient().getSubscriptions(personId, maxLimit);
+    @Optional Integer maxLimit, @Optional String token) {
+    return getClient().getSubscriptions(personId, maxLimit, token);
   }
 
   /**
@@ -300,8 +300,8 @@ public class SparkConnector {
    * @return SubscriptionsIdGetResponse Object
    */
 @Processor
-  public SubscriptionsIdGetResponse getSubscriptionsById(String subscriptionId) {
-    return getClient().getSubscriptionsById(subscriptionId);
+  public SubscriptionsIdGetResponse getSubscriptionsById(String subscriptionId, @Optional String token) {
+    return getClient().getSubscriptionsById(subscriptionId, token);
   }
 
  
@@ -314,8 +314,8 @@ public class SparkConnector {
    * @return WebhooksGetResponse Object
    */
 @Processor
-  public WebhooksGetResponse getWebHooks(@Optional Integer maxLimit) {
-    return getClient().getWebHooks(maxLimit);
+  public WebhooksGetResponse getWebHooks(@Optional Integer maxLimit, @Optional String token) {
+    return getClient().getWebHooks(maxLimit, token);
   }
 
   /**
@@ -326,8 +326,8 @@ public class SparkConnector {
    */
 @Processor
   public WebhooksPostResponse postWebHooks(
-    WebhooksPostRequest webhooksPostRequest) {
-    return getClient().postWebHooks(webhooksPostRequest);
+    WebhooksPostRequest webhooksPostRequest, @Optional String token) {
+    return getClient().postWebHooks(webhooksPostRequest, token);
   }
 
   /**
@@ -337,8 +337,8 @@ public class SparkConnector {
    * @return WebhooksIdGetResponse Object
    */
 @Processor
-  public WebhooksIdGetResponse getWebHooksById(String webHookUID) {
-    return getClient().getWebHooksById(webHookUID);
+  public WebhooksIdGetResponse getWebHooksById(String webHookUID, @Optional String token) {
+    return getClient().getWebHooksById(webHookUID, token);
   }
 
   /**
@@ -350,8 +350,8 @@ public class SparkConnector {
    */
 @Processor
   public WebhooksIdPutResponse updateWebHooksById(String webHookUID, @Default("#[payload]")
-    WebhooksIdPutRequest webhooksIdPutRequest) {
-    return getClient().updateWebHooksById(webHookUID, webhooksIdPutRequest);
+    WebhooksIdPutRequest webhooksIdPutRequest,  @Optional String token) {
+    return getClient().updateWebHooksById(webHookUID, webhooksIdPutRequest, token);
   }
 
   /**
@@ -361,8 +361,8 @@ public class SparkConnector {
    * @return StatusResponse Object
    */
 @Processor
-  public StatusResponse deleteWebHooksById(String webHookUID) {
-    return getClient().deleteWebHooksById(webHookUID);
+  public StatusResponse deleteWebHooksById(String webHookUID, @Optional String token) {
+    return getClient().deleteWebHooksById(webHookUID, token);
   }
 
   

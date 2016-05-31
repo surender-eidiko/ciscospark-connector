@@ -26,7 +26,7 @@ public class GetRoomByIdTestCases extends CiscoSparkAbstractTestCases {
 		
 		
 		String id =getRoomId();
-		 RoomsIdGetResponse roomIdResponse = getConnector().getRoomById(id);
+		 RoomsIdGetResponse roomIdResponse = getConnector().getRoomById(id,null);
 	     assertNotNull(roomIdResponse);
 	     assertEquals("200", roomIdResponse.getStatusCode() );
 	  }

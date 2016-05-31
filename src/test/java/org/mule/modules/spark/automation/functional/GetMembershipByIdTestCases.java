@@ -25,7 +25,7 @@ public class GetMembershipByIdTestCases extends CiscoSparkAbstractTestCases {
 	public void testGetMemebershipById() {
 		String membershipId = getMembershipId();
 		MembershipsIdGetResponse memberId = getConnector().getMembershipById(
-				membershipId);
+				membershipId,null);
 		assertNotNull(memberId);
 		 assertEquals("200", memberId.getStatusCode() );
 		 

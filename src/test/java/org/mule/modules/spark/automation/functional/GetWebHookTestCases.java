@@ -23,7 +23,7 @@ public class GetWebHookTestCases extends CiscoSparkAbstractTestCases {
 	@Category({FunctionalTestSuite.class})
 	public void testGetWebHook()
 	{
-		 WebhooksGetResponse webResp = getConnector().getWebHooks(5);
+		 WebhooksGetResponse webResp = getConnector().getWebHooks(5,null);
 		  assertNotNull(webResp);
 		  assertEquals("200", webResp.getStatusCode() ); 
 	}

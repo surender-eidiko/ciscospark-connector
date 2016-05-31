@@ -22,7 +22,7 @@ public class GetPeopleTestCases extends CiscoSparkAbstractTestCases {
 	@Category({FunctionalTestSuite.class})
 	public void testGetPeople() {
 		PeopleGetResponse people = getConnector().getPeople(
-				TestDataBuilder.getEmail(), null, 5);
+				TestDataBuilder.getEmail(), null, 5,null);
 		assertNotNull(people);
 		 assertEquals("200", people.getStatusCode() );
 	}

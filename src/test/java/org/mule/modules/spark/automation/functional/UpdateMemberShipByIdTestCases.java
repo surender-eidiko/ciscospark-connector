@@ -28,7 +28,7 @@ public class UpdateMemberShipByIdTestCases extends CiscoSparkAbstractTestCases {
 		
 		MembershipsIdPutRequest memberReq = getMembershipsIdPutRequest();	
 		String membershipId = memberReq.getId();
-		  MembershipsIdPutResponse memberUpdate = getConnector().updateMembershipById(membershipId, memberReq);
+		  MembershipsIdPutResponse memberUpdate = getConnector().updateMembershipById(membershipId, memberReq, null);
 		  assertNotNull(memberUpdate);
 		  assertEquals("403", memberUpdate.getStatusCode() );
 		 

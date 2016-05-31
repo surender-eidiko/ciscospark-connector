@@ -69,7 +69,7 @@ public class SparkClient {
  
 
   public MembershipsGetResponse getMemberships(String roomId,
-    String personId, String personEmail, Integer maxLimit) {
+    String personId, String personEmail, Integer maxLimit, String token) {
     WebResource webResource = getApiResource().path("memberships");
     MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     if (roomId != null) {
@@ -86,41 +86,41 @@ public class SparkClient {
     }
     webResource = webResource.queryParams(queryParams);
     return (MembershipsGetResponse) getData(webResource,
-      MembershipsGetResponse.class);
+      MembershipsGetResponse.class, token);
   }
 
   public MembershipsPostResponse addMemberToRoom(
-    MembershipsPostRequest membershipsPostRequest) {
+    MembershipsPostRequest membershipsPostRequest, String token) {
     WebResource webResource = getApiResource().path("memberships");
    
     return (MembershipsPostResponse) postData(membershipsPostRequest,
-      webResource, MembershipsPostResponse.class);
+      webResource, MembershipsPostResponse.class, token);
   }
 
-  public MembershipsIdGetResponse getMembershipById(String membershipId) {
+  public MembershipsIdGetResponse getMembershipById(String membershipId, String token) {
     WebResource webResource = getApiResource().path("memberships").path(
       membershipId);
     return (MembershipsIdGetResponse) getData(webResource,
-      MembershipsIdGetResponse.class);
+      MembershipsIdGetResponse.class, token);
   }
 
   public MembershipsIdPutResponse updateMembershipById(String membershipId,
-    MembershipsIdPutRequest membershipsIdPutRequest) {
+    MembershipsIdPutRequest membershipsIdPutRequest, String token) {
     WebResource webResource = getApiResource().path("memberships").path(
       membershipId);
     
     return (MembershipsIdPutResponse) putData(membershipsIdPutRequest,
-      webResource, MembershipsIdPutResponse.class);
+      webResource, MembershipsIdPutResponse.class, token);
   }
 
-  public StatusResponse deleteMembershipById(String membershipId) {
+  public StatusResponse deleteMembershipById(String membershipId, String token) {
     WebResource webResource = getApiResource().path("memberships").path(
       membershipId);
-    return (StatusResponse) deleteData(webResource);
+    return (StatusResponse) deleteData(webResource, token);
   }
 
   public MessagesGetResponse getMessages(String roomId, String before,
-    String beforeMessage, Integer maxLimit) {
+    String beforeMessage, Integer maxLimit, String token) {
     WebResource webResource = getApiResource().path("messages");
     MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     queryParams.add("roomId", roomId);
@@ -135,31 +135,31 @@ public class SparkClient {
     }
     webResource = webResource.queryParams(queryParams);
     return (MessagesGetResponse) getData(webResource,
-      MessagesGetResponse.class);
+      MessagesGetResponse.class, token);
   }
 
   public MessagesPostResponse postMessages(
-    MessagesPostRequest messagesPostRequest) {
+    MessagesPostRequest messagesPostRequest, String token) {
     WebResource webResource = getApiResource().path("messages");
     return (MessagesPostResponse) postData(messagesPostRequest,
-      webResource, MessagesPostResponse.class);
+      webResource, MessagesPostResponse.class, token);
   }
 
-  public MessagesIdGetResponse getMessagesById(String messageId) {
+  public MessagesIdGetResponse getMessagesById(String messageId, String token) {
     WebResource webResource = getApiResource().path("messages").path(
       messageId);
     return (MessagesIdGetResponse) getData(webResource,
-      MessagesIdGetResponse.class);
+      MessagesIdGetResponse.class, token);
   }
 
-  public StatusResponse deleteMessagesById(String messageId) {
+  public StatusResponse deleteMessagesById(String messageId, String token) {
     WebResource webResource = getApiResource().path("messages").path(
       messageId);
-    return (StatusResponse) deleteData(webResource);
+    return (StatusResponse) deleteData(webResource, token);
   }
 
   public PeopleGetResponse getPeople(String email, String displayName,
-    Integer maxLimit) {
+    Integer maxLimit, String token) {
     WebResource webResource = getApiResource().path("people");
     MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     if (email != null) {
@@ -172,16 +172,16 @@ public class SparkClient {
       queryParams.add("max", String.valueOf(maxLimit));
     }
     webResource = webResource.queryParams(queryParams);
-    return (PeopleGetResponse) getData(webResource, PeopleGetResponse.class);
+    return (PeopleGetResponse) getData(webResource, PeopleGetResponse.class, token);
   }
 
-  public PeopleIdGetResponse getPeopleById(String uid) {
+  public PeopleIdGetResponse getPeopleById(String uid, String token) {
     WebResource webResource = getApiResource().path("people").path(uid);
     return (PeopleIdGetResponse) getData(webResource,
-      PeopleIdGetResponse.class);
+      PeopleIdGetResponse.class, token);
   }
 
-  public RoomsGetResponse getRooms(Boolean showSipAddress, Integer maxLimit) {
+  public RoomsGetResponse getRooms(Boolean showSipAddress, Integer maxLimit, String token) {
     WebResource webResource = getApiResource().path("rooms");
     MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     if (showSipAddress != null) {
@@ -191,36 +191,37 @@ public class SparkClient {
       queryParams.add("max", String.valueOf(maxLimit));
     }
     webResource = webResource.queryParams(queryParams);
-    return (RoomsGetResponse) getData(webResource, RoomsGetResponse.class);
+    return (RoomsGetResponse) getData(webResource, RoomsGetResponse.class, token);
 
   }
 
-  public RoomsPostResponse createRooms(RoomsPostRequest roomsPostRequest) {
+  public RoomsPostResponse createRooms(RoomsPostRequest roomsPostRequest, String token) {
     WebResource webResource = getApiResource().path("rooms");
     return (RoomsPostResponse) postData(roomsPostRequest, webResource,
-      RoomsPostResponse.class);
+      RoomsPostResponse.class, token);
   }
 
-  public RoomsIdGetResponse getRoomById(String roomId) {
+  public RoomsIdGetResponse getRoomById(String roomId, String token) {
     WebResource webResource = getApiResource().path("rooms").path(roomId);
+   
     return (RoomsIdGetResponse) getData(webResource,
-      RoomsIdGetResponse.class);
+      RoomsIdGetResponse.class,token);
   }
 
   public RoomsIdPutResponse updateRoomById(String roomId,
-    RoomsIdPutRequest roomsIdPutRequest) {
+    RoomsIdPutRequest roomsIdPutRequest, String token) {
     WebResource webResource = getApiResource().path("rooms").path(roomId);
     return (RoomsIdPutResponse) putData(roomsIdPutRequest, webResource,
-      RoomsIdPutResponse.class);
+      RoomsIdPutResponse.class, token);
   }
 
-  public StatusResponse deleteRoomById(String roomId) {
+  public StatusResponse deleteRoomById(String roomId, String token) {
     WebResource webResource = getApiResource().path("rooms").path(roomId);
-    return (StatusResponse) deleteData(webResource);
+    return (StatusResponse) deleteData(webResource, token);
   }
 
   public SubscriptionsGetResponse getSubscriptions(String personId,
-    Integer maxLimit) {
+    Integer maxLimit, String token) {
     WebResource webResource = getApiResource().path("subscriptions");
     MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     queryParams.add("Person ID", personId);
@@ -229,19 +230,19 @@ public class SparkClient {
     }
     webResource = webResource.queryParams(queryParams);
     return (SubscriptionsGetResponse) getData(webResource,
-      SubscriptionsGetResponse.class);
+      SubscriptionsGetResponse.class,token);
   }
 
-  public SubscriptionsIdGetResponse getSubscriptionsById(String subscriptionId) {
+  public SubscriptionsIdGetResponse getSubscriptionsById(String subscriptionId, String token) {
     WebResource webResource = getApiResource().path("subscriptions").path(
       subscriptionId);
     return (SubscriptionsIdGetResponse) getData(webResource,
-      SubscriptionsIdGetResponse.class);
+      SubscriptionsIdGetResponse.class, token);
   }
 
   
 
-  public WebhooksGetResponse getWebHooks(Integer maxLimit) {
+  public WebhooksGetResponse getWebHooks(Integer maxLimit, String token) {
     WebResource webResource = getApiResource().path("webhooks");
     MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     if (maxLimit != null) {
@@ -249,48 +250,48 @@ public class SparkClient {
     }
     webResource = webResource.queryParams(queryParams);
     return (WebhooksGetResponse) getData(webResource,
-      WebhooksGetResponse.class);
+      WebhooksGetResponse.class, token);
   }
 
   public WebhooksPostResponse postWebHooks(
-    WebhooksPostRequest webhooksPostRequest) {
+    WebhooksPostRequest webhooksPostRequest, String token) {
     WebResource webResource = getApiResource().path("webhooks");
     return (WebhooksPostResponse) postData(webhooksPostRequest,
-      webResource, WebhooksPostResponse.class);
+      webResource, WebhooksPostResponse.class, token);
   }
 
-  public WebhooksIdGetResponse getWebHooksById(String webHookUID) {
+  public WebhooksIdGetResponse getWebHooksById(String webHookUID, String token) {
     WebResource webResource = getApiResource().path("webhooks").path(
       webHookUID);
     return (WebhooksIdGetResponse) getData(webResource,
-      WebhooksIdGetResponse.class);
+      WebhooksIdGetResponse.class, token);
   }
 
   public WebhooksIdPutResponse updateWebHooksById(String webHookUID,
-    WebhooksIdPutRequest webhooksIdPutRequest) {
+    WebhooksIdPutRequest webhooksIdPutRequest, String token) {
     WebResource webResource = getApiResource().path("webhooks").path(
       webHookUID);
     return (WebhooksIdPutResponse) putData(webhooksIdPutRequest,
-      webResource, WebhooksIdPutResponse.class);
+      webResource, WebhooksIdPutResponse.class, token);
   }
 
-  public StatusResponse deleteWebHooksById(String webHookUID) {
+  public StatusResponse deleteWebHooksById(String webHookUID, String token) {
     WebResource webResource = getApiResource().path("webhooks").path(
       webHookUID);
-    return (StatusResponse) deleteData(webResource);
+    return (StatusResponse) deleteData(webResource, token);
   }
 
-  private Object getData(WebResource webResource, Class<?> returnClass) {
+  private Object getData(WebResource webResource, Class<?> returnClass,String token) {
 
-    WebResource.Builder builder = addHeader(webResource);
+    WebResource.Builder builder = addHeader(webResource, token);
 
     ClientResponse clientResponse = builder.get(ClientResponse.class);
     return buildResponseObject(returnClass, clientResponse);
   }
 
   private Object postData(Object request, WebResource webResource,
-    Class<?> returnClass) {
-    WebResource.Builder builder = addHeader(webResource);
+    Class<?> returnClass, String token) {
+    WebResource.Builder builder = addHeader(webResource, token);
     builder.type(MediaType.APPLICATION_JSON);
     ObjectMapper mapper = new ObjectMapper();
     String input = convertObjectToString(request, mapper);
@@ -302,8 +303,8 @@ public class SparkClient {
   }
 
   private Object putData(Object request, WebResource webResource,
-    Class<?> returnClass) {
-    WebResource.Builder builder = addHeader(webResource);
+    Class<?> returnClass, String token) {
+    WebResource.Builder builder = addHeader(webResource, token);
     builder.type(MediaType.APPLICATION_JSON);
     ObjectMapper mapper = new ObjectMapper();
     String input = convertObjectToString(request, mapper);
@@ -315,20 +316,28 @@ public class SparkClient {
     return buildResponseObject(returnClass, clientResponse);
   }
 
-  private Object deleteData(WebResource webResource) {
-    WebResource.Builder builder = addHeader(webResource);
+  private Object deleteData(WebResource webResource, String token) {
+    WebResource.Builder builder = addHeader(webResource, token);
     ClientResponse clientResponse = builder.delete(ClientResponse.class);
     return buildDeleteResponseObject(clientResponse);
   }
 
-  private WebResource.Builder addHeader(WebResource webResource) {
+  /*private WebResource.Builder addHeader(WebResource webResource) {
     WebResource.Builder builder = webResource
       .accept(MediaType.APPLICATION_JSON);
 
     builder.header("Authorization", connector.getConfig()
       .getAuthorization());
     return builder;
-  }
+  }*/
+  private WebResource.Builder addHeader(WebResource webResource, String token) {
+	    WebResource.Builder builder = webResource
+	      .accept(MediaType.APPLICATION_JSON);
+	    if(token == null)
+	    	token= connector.getConfig().getAuthorization();
+	    builder.header("Authorization", token);
+	    return builder;
+	  }
 
   private Object buildDeleteResponseObject(ClientResponse clientResponse) {
     StatusResponse statusResponse = new StatusResponse();
