@@ -163,9 +163,9 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 	 
 	 public String getPersonId() {
 		 PeopleGetResponse people = getConnector().getPeople(TestDataBuilder.getEmail(), null,5,null);
-		  String personId = people.getItems().get(0).getId(); 
-		  return personId; 
-		 }
+		 String personId = people.getItems().get(0).getId(); 
+		 return personId; 
+	}
 	
 	
 		 

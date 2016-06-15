@@ -11,6 +11,7 @@ import java.util.Map;
 import javax.annotation.Generated;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.mule.api.annotations.Ignore;
 
 @Generated("org.jsonschema2pojo")
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -35,6 +36,7 @@ public class PeopleGetResponseItem {
    * URL to the person's avatar in PNG format
    *
    */
+  @Ignore
   private String avatar;
   /**
    * The date and time that the person was created (Required)
