@@ -838,5 +838,15 @@
             </attributes>
             <childElements/>
         </processor>
+        <processor name="getPeopleDetail" xmlName="get-people-detail" caption="Get people detail">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="token" use="optional" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </processor>
     </message-processors>
 </connector>

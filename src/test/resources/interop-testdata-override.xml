@@ -812,5 +812,12 @@
             </attributes>
             <childElements/>
         </processor>
+        <processor name="getPeopleDetail" xmlName="get-people-detail" caption="Get people detail">
+            <properties>
+                <datamapper input="PeopleIdGetResponse" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+        </processor>
     </message-processors>
 </connector>

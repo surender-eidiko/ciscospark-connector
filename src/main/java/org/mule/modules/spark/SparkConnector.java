@@ -220,6 +220,17 @@ public class SparkConnector {
     return getClient().getPeopleById(uid, token);
   }
 
+/**
+ * Gets the people detail.
+ *
+ * @param token the token
+ * @return the people detail
+ */
+@Processor
+public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
+  return getClient().getPeopleDetail(token);
+}
+
   /**
    * This method Returns a list of rooms. In most cases the results will only contain rooms that the authentiated user is a member of.
    * {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:get-rooms}

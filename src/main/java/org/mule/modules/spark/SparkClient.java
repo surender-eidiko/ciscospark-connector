@@ -175,11 +175,16 @@ public class SparkClient {
     return (PeopleGetResponse) getData(webResource, PeopleGetResponse.class, token);
   }
 
-  public PeopleIdGetResponse getPeopleById(String uid, String token) {
+ public PeopleIdGetResponse getPeopleById(String uid, String token) {
     WebResource webResource = getApiResource().path("people").path(uid);
     return (PeopleIdGetResponse) getData(webResource,
       PeopleIdGetResponse.class, token);
   }
+  public PeopleIdGetResponse getPeopleDetail(String token) {
+	    WebResource webResource = getApiResource().path("people").path("me");
+	    return (PeopleIdGetResponse) getData(webResource,
+	      PeopleIdGetResponse.class, token);
+	  }
 
   public RoomsGetResponse getRooms(Boolean showSipAddress, Integer maxLimit, String token) {
     WebResource webResource = getApiResource().path("rooms");
@@ -284,8 +289,9 @@ public class SparkClient {
   private Object getData(WebResource webResource, Class<?> returnClass,String token) {
 
     WebResource.Builder builder = addHeader(webResource, token);
-
+    
     ClientResponse clientResponse = builder.get(ClientResponse.class);
+    System.out.println("Clent Response :"+clientResponse.toString());
     return buildResponseObject(returnClass, clientResponse);
   }
 

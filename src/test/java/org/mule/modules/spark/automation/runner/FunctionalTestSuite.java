@@ -30,6 +30,7 @@ import org.mule.modules.spark.automation.functional.GetSubscriptionByIdTestCases
 import org.mule.modules.spark.automation.functional.GetSubscriptionTestCases;
 import org.mule.modules.spark.automation.functional.GetWebHookByIdTestCases;
 import org.mule.modules.spark.automation.functional.GetWebHookTestCases;
+import org.mule.modules.spark.automation.functional.PeopleDetailTestCase;
 import org.mule.modules.spark.automation.functional.PostMessageTestCases;
 import org.mule.modules.spark.automation.functional.PostWebHookTestCases;
 import org.mule.modules.spark.automation.functional.UpdateMemberShipByIdTestCases;
@@ -56,7 +57,8 @@ AddEntityTestCases.class, AddMemeberToRoomTestCases.class,
 		UpdateWebHookByIdTestCases.class, FetchMetaDataKeyTestCases.class,
 		FetchMetaDataTestCases.class, DeleteMembershipByIdTestCases.class,
 		DeleteMessageByIdTestCases.class, DeleteRoomByIdTestCases.class,
-		DeleteWebHooksByIdTestCases.class
+		DeleteWebHooksByIdTestCases.class,
+		PeopleDetailTestCase.class
 
 })
 public class FunctionalTestSuite {
