@@ -182,8 +182,7 @@ public class SparkClient {
   }
   public PeopleIdGetResponse getPeopleDetail(String token) {
 	    WebResource webResource = getApiResource().path("people").path("me");
-	    return (PeopleIdGetResponse) getData(webResource,
-	      PeopleIdGetResponse.class, token);
+	    return (PeopleIdGetResponse) getData(webResource,PeopleIdGetResponse.class, token);
 	  }
 
   public RoomsGetResponse getRooms(Boolean showSipAddress, Integer maxLimit, String token) {
@@ -354,12 +353,11 @@ public class SparkClient {
 
   private Object buildResponseObject(Class<?> returnClass,
     ClientResponse clientResponse) {
-	 
     StatusResponse statusResponse = null;
     if (clientResponse.getStatus() == 200) {
-      statusResponse = (StatusResponse) clientResponse
-        .getEntity(returnClass);
+      statusResponse = (StatusResponse) clientResponse.getEntity(returnClass);
       statusResponse.setStatusCode("200");
+     
     } else {
      
       String strResponse = clientResponse.getEntity(String.class);
@@ -373,7 +371,8 @@ public class SparkClient {
         log.log(Level.SEVERE, "Error", ex);
       }
     }
-  
+    ObjectMapper mapper = new ObjectMapper();
+    System.out.println("Response :"+convertObjectToString(statusResponse,mapper));
     return statusResponse;
    
   }
