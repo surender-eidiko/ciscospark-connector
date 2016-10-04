@@ -818,6 +818,8 @@
                 <auto-paging>false</auto-paging>
                 <query-support>false</query-support>
             </properties>
+            <attributes/>
+            <childElements/>
         </processor>
     </message-processors>
 </connector>

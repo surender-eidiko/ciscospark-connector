@@ -847,6 +847,7 @@
             <attributes>
                 <attribute name="token" use="optional" caption="Token" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
+            <childElements/>
         </processor>
     </message-processors>
 </connector>

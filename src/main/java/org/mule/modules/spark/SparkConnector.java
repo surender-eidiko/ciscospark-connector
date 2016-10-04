@@ -240,9 +240,9 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    * @return RoomsGetResponse Object
    */
 @Processor
-  public RoomsGetResponse getRooms(@Optional Boolean showSipAddress,
-    @Optional Integer maxLimit, @Optional String token) {
-    return getClient().getRooms(showSipAddress, maxLimit, token);
+  public RoomsGetResponse getRooms(@Optional String teamId,
+    @Optional Integer maxLimit,@Optional String type, @Optional String token) {
+    return getClient().getRooms(teamId, maxLimit, type, token);
   }
 
   /**

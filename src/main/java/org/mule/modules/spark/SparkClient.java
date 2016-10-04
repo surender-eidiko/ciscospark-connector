@@ -138,11 +138,10 @@ public class SparkClient {
       MessagesGetResponse.class, token);
   }
 
-  public MessagesPostResponse postMessages(
-    MessagesPostRequest messagesPostRequest, String token) {
+  public MessagesPostResponse postMessages(MessagesPostRequest messagesPostRequest, String token) {
     WebResource webResource = getApiResource().path("messages");
-    return (MessagesPostResponse) postData(messagesPostRequest,
-      webResource, MessagesPostResponse.class, token);
+    
+    return (MessagesPostResponse) postData(messagesPostRequest,webResource, MessagesPostResponse.class, token);
   }
 
   public MessagesIdGetResponse getMessagesById(String messageId, String token) {
@@ -183,20 +182,22 @@ public class SparkClient {
   public PeopleIdGetResponse getPeopleDetail(String token) {
 	    WebResource webResource = getApiResource().path("people").path("me");
 	    return (PeopleIdGetResponse) getData(webResource,PeopleIdGetResponse.class, token);
-	  }
+  }
 
-  public RoomsGetResponse getRooms(Boolean showSipAddress, Integer maxLimit, String token) {
+  public RoomsGetResponse getRooms(String teamId, Integer maxLimit,String type, String token) {
     WebResource webResource = getApiResource().path("rooms");
     MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-    if (showSipAddress != null) {
-      queryParams.add("showSipAddress", String.valueOf(showSipAddress));
+    if (teamId != null) {
+      queryParams.add("teamId", teamId);
     }
+    if (type != null) {
+        queryParams.add("type", type);
+      }
     if (maxLimit != null) {
       queryParams.add("max", String.valueOf(maxLimit));
     }
     webResource = webResource.queryParams(queryParams);
     return (RoomsGetResponse) getData(webResource, RoomsGetResponse.class, token);
-
   }
 
   public RoomsPostResponse createRooms(RoomsPostRequest roomsPostRequest, String token) {
@@ -369,6 +370,7 @@ public class SparkClient {
         statusResponse.setStatusMessage(strResponse);
       } catch (Exception ex) {
         log.log(Level.SEVERE, "Error", ex);
+       
       }
     }
     ObjectMapper mapper = new ObjectMapper();
@@ -386,7 +388,7 @@ public class SparkClient {
     } catch (Exception ex) {
       log.log(Level.SEVERE, "Error", ex);
     }
-    log.info("Input String = " + input);
+    //log.info("Input String = " + input);
     return input;
   }
 
