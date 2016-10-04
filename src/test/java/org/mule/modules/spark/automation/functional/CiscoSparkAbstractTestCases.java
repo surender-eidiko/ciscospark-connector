@@ -74,18 +74,23 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 		  MembershipsPostRequest memberReqst = new MembershipsPostRequest();
 	      memberReqst.setRoomId(id);
 	      memberReqst.setPersonEmail(TestDataBuilder.getEmail());
-	      
 	      return memberReqst;
 	}
 
 	public  MessagesPostRequest getMessagesPostRequest()
 	{
 		
-		   String id = getRoomId();
+		 // String id = getRoomId();
 		  MessagesPostRequest postReq = new MessagesPostRequest();
-		  postReq.setRoomId(id);
-		  postReq.setText(TestDataBuilder.getText());
-		  postReq.setFiles(null);
+		 // postReq.setRoomId("Y2lzY29zcGFyazovL3VzL1JPT00vZjY0OWQ2MTAtMmZiYy0xMWU2LTkyODQtZmI2ZDExOTlmZTM3");
+		  //postReq.setText(TestDataBuilder.getText());
+		  ////postReq.setFiles("https://c.tadst.com/gfx/300h/calendar.png?1");
+		  String[] files = {"https://c.tadst.com/gfx/300h/calendar.png?1"};
+		  postReq.setFiles(files);
+		 // postReq.setToPersonId("Y2lzY29zcGFyazovL3VzL1BFT1BMRS8zZmE3MDkwYy04ZWZmLTQwYmYtYjZjZi1hYzI1M2Y2NWY5M2I");
+		  postReq.setToPersonEmail("venkat.surabathula@eidiko.com");
+		 // postReq.setMarkdown("Your Flow has been created** [on Mulesoft](https://www.mulesoft.com). ");  
+		  postReq.setHtml("");
 		  
 		  return postReq;
 	}
