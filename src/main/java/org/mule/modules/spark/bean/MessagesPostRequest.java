@@ -112,19 +112,19 @@ public void setHtml(String html) {
    *
    */
  // private List<String> files = new ArrayList<String>();
-	private String[] files;
+	private String files;
 	
   
- public String[] getFiles() {
+ public String getFiles() {
 	return files;
 }
 
-public void setFiles(String[] files) {
+public void setFiles(String files) {
 	this.files = files;
 }
 
 /** The additional properties. */
-  private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+  
 
   /**
    * The room ID (Required).
@@ -183,23 +183,6 @@ public void setFiles(String[] files) {
     this.files = files;
   }
   	*/				
-  /**
-   * Gets the additional properties.
-   *
-   * @return the additional properties
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return this.additionalProperties;
-  }
-
-  /**
-   * Sets the additional property.
-   *
-   * @param name the name
-   * @param value the value
-   */
-  public void setAdditionalProperty(String name, Object value) {
-    this.additionalProperties.put(name, value);
-  }
+ 
 
 }

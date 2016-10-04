@@ -23,6 +23,7 @@ import org.mule.modules.spark.bean.MessagesPostRequest;
 import org.mule.modules.spark.bean.MessagesPostResponse;
 import org.mule.modules.spark.bean.PeopleGetResponse;
 import org.mule.modules.spark.bean.PeopleIdGetResponse;
+import org.mule.modules.spark.bean.PostMessagePropertiesBean;
 import org.mule.modules.spark.bean.RoomsGetResponse;
 import org.mule.modules.spark.bean.RoomsIdGetResponse;
 import org.mule.modules.spark.bean.RoomsIdPutRequest;
@@ -140,11 +141,34 @@ public class SparkClient {
 
   public MessagesPostResponse postMessages(MessagesPostRequest messagesPostRequest, String token) {
     WebResource webResource = getApiResource().path("messages");
-    
-    return (MessagesPostResponse) postData(messagesPostRequest,webResource, MessagesPostResponse.class, token);
+    PostMessagePropertiesBean  bean = (PostMessagePropertiesBean) constructedBean(messagesPostRequest);
+    return (MessagesPostResponse) postData(bean,webResource, MessagesPostResponse.class, token);
   }
 
-  public MessagesIdGetResponse getMessagesById(String messageId, String token) {
+  public PostMessagePropertiesBean constructedBean(MessagesPostRequest messagesPostRequest) {
+	  PostMessagePropertiesBean bean = new PostMessagePropertiesBean();
+	  if(messagesPostRequest.getToPersonId()!= null){
+		  bean.setToPersonId(messagesPostRequest.getToPersonId());
+	  }
+	  if(messagesPostRequest.getToPersonEmail()!=null)
+		  bean.setToPersonEmail(messagesPostRequest.getToPersonEmail());
+	  if(messagesPostRequest.getText()!=null)
+		  bean.setText(messagesPostRequest.getText());
+	  if(messagesPostRequest.getRoomId()!=null)
+		  bean.setRoomId(messagesPostRequest.getRoomId());
+	  if(messagesPostRequest.getMarkdown()!=null)
+		  bean.setMarkdown(messagesPostRequest.getMarkdown());
+	  if(messagesPostRequest.getHtml()!=null)
+		  bean.setHtml(messagesPostRequest.getHtml());
+	  if(messagesPostRequest.getFiles()!=null)
+		  bean.setFiles(new String[]{messagesPostRequest.getFiles()});
+	  
+	  
+	return bean;
+}
+
+
+public MessagesIdGetResponse getMessagesById(String messageId, String token) {
     WebResource webResource = getApiResource().path("messages").path(
       messageId);
     return (MessagesIdGetResponse) getData(webResource,

@@ -164,8 +164,7 @@ public class SparkConnector {
    * @return MessagesPostResponse Object
    */
 @Processor
-  public MessagesPostResponse postMessages(
-    MessagesPostRequest messagesPostRequest, @Optional String token) {
+  public MessagesPostResponse postMessages(@Default("#[payload]")MessagesPostRequest messagesPostRequest, @Optional String token) {
     return getClient().postMessages(messagesPostRequest, token);
   }
 
