@@ -14,7 +14,7 @@ public class TestDataBuilder {
 	public static RoomsPostRequest  getRoomsPostRequest()
 	{
 		RoomsPostRequest roomsPostRequest =new RoomsPostRequest();
-	    roomsPostRequest.setTitle("My Room");
+	    roomsPostRequest.setTitle("Test Room");
 	    return roomsPostRequest;
 	}
 	

@@ -84,7 +84,8 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 		  MessagesPostRequest postReq = new MessagesPostRequest();
 		 // postReq.setRoomId("Y2lzY29zcGFyazovL3VzL1JPT00vZjY0OWQ2MTAtMmZiYy0xMWU2LTkyODQtZmI2ZDExOTlmZTM3");
 		  //postReq.setText(TestDataBuilder.getText());
-		  postReq.setFiles("https://c.tadst.com/gfx/300h/calendar.png?1");
+		  postReq.setText("This attachment added from testcase....");
+		  postReq.setFiles("https://www.roanokechowan.edu/wp-content/uploads/2012/05/calendar.jpg");
 		 // postReq.setToPersonId("Y2lzY29zcGFyazovL3VzL1BFT1BMRS8zZmE3MDkwYy04ZWZmLTQwYmYtYjZjZi1hYzI1M2Y2NWY5M2I");
 		  postReq.setToPersonEmail("venkat.surabathula@eidiko.com");
 		 // postReq.setMarkdown("Your Flow has been created** [on Mulesoft](https://www.mulesoft.com). ");  

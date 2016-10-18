@@ -208,7 +208,7 @@ public MessagesIdGetResponse getMessagesById(String messageId, String token) {
 	    return (PeopleIdGetResponse) getData(webResource,PeopleIdGetResponse.class, token);
   }
 
-  public RoomsGetResponse getRooms(String teamId, Integer maxLimit,String type, String token) {
+  public RoomsGetResponse getRooms(String teamId, Integer max,String type, Boolean sortByMostRecentlyActive,String token) {
     WebResource webResource = getApiResource().path("rooms");
     MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
     if (teamId != null) {
@@ -217,9 +217,12 @@ public MessagesIdGetResponse getMessagesById(String messageId, String token) {
     if (type != null) {
         queryParams.add("type", type);
       }
-    if (maxLimit != null) {
-      queryParams.add("max", String.valueOf(maxLimit));
+    if (max != null) {
+      queryParams.add("max", String.valueOf(max));
     }
+    if (sortByMostRecentlyActive != null) {
+        queryParams.add("sortByMostRecentlyActive", String.valueOf(sortByMostRecentlyActive));
+      }
     webResource = webResource.queryParams(queryParams);
     return (RoomsGetResponse) getData(webResource, RoomsGetResponse.class, token);
   }

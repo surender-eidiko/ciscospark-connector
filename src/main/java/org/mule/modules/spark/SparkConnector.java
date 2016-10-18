@@ -240,8 +240,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    */
 @Processor
   public RoomsGetResponse getRooms(@Optional String teamId,
-    @Optional Integer maxLimit,@Optional String type, @Optional String token) {
-    return getClient().getRooms(teamId, maxLimit, type, token);
+    @Optional Integer max,@Optional String type,@Optional Boolean sortByMostRecentlyActive, @Optional String token) {
+    return getClient().getRooms(teamId, max, type, sortByMostRecentlyActive, token);
   }
 
   /**
