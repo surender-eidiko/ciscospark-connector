@@ -18,8 +18,7 @@ public class RoomsGetResponse extends StatusResponse {
 
   private List<RoomsGetResponseItem> items = new ArrayList<RoomsGetResponseItem>();
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-  /**
+ /**
    *
    * @return The items
    */

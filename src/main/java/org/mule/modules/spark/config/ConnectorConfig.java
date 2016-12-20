@@ -17,12 +17,14 @@ public class ConnectorConfig {
   @Default("https://api.ciscospark.com/v1")
   private String url = "https://api.ciscospark.com/v1";
 
-  @Configurable
+  @SuppressWarnings("deprecation")
+@Configurable
   @Optional
   @RestHeaderParam("Authorization")
-  private String authorization = "Bearer MDE3ZDQ1OGUtNDczMi00NjBkLTk3YzMtNGI2Yjg2MmJmNmJmY2EwODUyOWMtZDk0";
+  private String authorization = "Bearer YzFmZjhiYTgtYTBjMS00YWUzLWFmYjAtOGMzNjZmMTBmMjFkZmQyOTAzMDItM2Qx";
+  //private String authorization = "Bearer MGFkZWI3YTktY2U5Ny00MjU5LWI2N2MtYWU0YWI4MWU1N2ZhNGM4YmI2ZGQtZTFi";
 
-  public String getUrl() {
+public String getUrl() {
     return url;
   }
 

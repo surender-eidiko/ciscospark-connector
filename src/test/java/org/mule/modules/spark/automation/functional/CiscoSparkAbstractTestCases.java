@@ -63,7 +63,7 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 	public String getRoomId()
 	{
 		 RoomsPostRequest roomsPostRequest = TestDataBuilder.getRoomsPostRequest();
-	     RoomsPostResponse response=  getConnector().createRooms(roomsPostRequest, null);
+	     RoomsPostResponse response=  getConnector().createRooms(roomsPostRequest, null,null);
 	     String roomid = response.getId();
 	     return roomid;
 	}
@@ -114,7 +114,7 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 		  MembershipsPostRequest memberReqst = getMembershipsPostRequest();
 		  
 		  MembershipsPostResponse addMemeber =
-		  getConnector().addMemberToRoom(memberReqst, null);
+		  getConnector().addMemberToRoom(memberReqst, null,null);
 		  
 		  String membershipId = addMemeber.getId();
 		 
@@ -140,7 +140,7 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 	 public String getMessageId() {
 		  
 		  MessagesPostRequest postReq = getMessagesPostRequest();
-		  MessagesPostResponse msg = getConnector().postMessages(postReq, null);
+		  MessagesPostResponse msg = getConnector().postMessages(postReq, null,null);
 		  String messageId = msg.getId(); 
 		  return messageId; 
 		  }
@@ -148,7 +148,7 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 	 public String getWebHooksId() {
 		 
 		 WebhooksPostRequest webReq = getWebhooksPostRequest();
-		  WebhooksPostResponse webHookResp = getConnector().postWebHooks(webReq, null);
+		  WebhooksPostResponse webHookResp = getConnector().postWebHooks(webReq, null,null);
 		  String webHooksId = webHookResp.getId();
 
 		   return webHooksId;
@@ -156,7 +156,7 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 	 
 	 public String getSubscriptionId()
 	 {
-		 SubscriptionsGetResponse subscription = getConnector().getSubscriptions(getPersonId(), 5,null);
+		 SubscriptionsGetResponse subscription = getConnector().getSubscriptions(getPersonId(), 5,null,null);
 		  
 		  String subscriptionId = "test";
 		  if(subscription.getItems().size()  > 0){
@@ -166,7 +166,7 @@ public abstract class CiscoSparkAbstractTestCases extends AbstractTestCase<Spark
 	 }
 	 
 	 public String getPersonId() {
-		 PeopleGetResponse people = getConnector().getPeople(TestDataBuilder.getEmail(), null,5,null);
+		 PeopleGetResponse people = getConnector().getPeople(TestDataBuilder.getEmail(), null,5,null,null);
 		 String personId = people.getItems().get(0).getId(); 
 		 return personId; 
 	}

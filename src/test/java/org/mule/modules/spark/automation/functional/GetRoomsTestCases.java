@@ -24,7 +24,7 @@ public class GetRoomsTestCases extends CiscoSparkAbstractTestCases {
 	@Category({FunctionalTestSuite.class})
 	public void testGetRooms()
 	{
-		RoomsGetResponse rooms = getConnector().getRooms(null, null,null,null,null);
+		 RoomsGetResponse rooms = getConnector().getRooms(null,null,null,null,null,"123");
 	     assertNotNull(rooms);
 	     assertEquals("200",rooms.getStatusCode());
 	}

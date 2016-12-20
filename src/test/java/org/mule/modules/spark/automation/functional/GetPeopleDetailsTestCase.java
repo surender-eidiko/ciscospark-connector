@@ -18,7 +18,7 @@ public class GetPeopleDetailsTestCase extends CiscoSparkAbstractTestCases {
 	@Category({FunctionalTestSuite.class})
 	public void testGetPeopleDetails()
 	{  
-		PeopleIdGetResponse details = getConnector().getPeopleDetail(null);
+		PeopleIdGetResponse details = getConnector().getPeopleDetail(null,null);
 		 assertNotNull(details);
 		 assertEquals("200", details.getStatusCode() );
 	}

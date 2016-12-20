@@ -25,7 +25,7 @@ public class CreateRoomsTestCases extends CiscoSparkAbstractTestCases {
 	 @Category({FunctionalTestSuite.class})
 	  public void testCreateRooms() throws Exception {
 		RoomsPostRequest roomsPostRequest =TestDataBuilder.getRoomsPostRequest();
-	     RoomsPostResponse response=  getConnector().createRooms(roomsPostRequest, null);
+	     RoomsPostResponse response=  getConnector().createRooms(roomsPostRequest, null,null);
 	     assertNotNull(response);
 	     assertEquals("200", response.getStatusCode() );
 	     assertEquals(roomsPostRequest.getTitle(), response.getTitle());

@@ -3,26 +3,26 @@
  */
 package org.mule.modules.spark.bean;
 
-public class StatusResponse {
+public class StatusResponse  extends TrackingIDGenerationBean{
 
-  private String statusCode;
+	private String statusCode;
 
-  private String statusMessage;
+	private String statusMessage;
 
-  public String getStatusCode() {
-    return statusCode;
-  }
+	public String getStatusCode() {
+		return statusCode;
+	}
 
-  public void setStatusCode(String statusCode) {
-    this.statusCode = statusCode;
-  }
+	public void setStatusCode(String statusCode) {
+		this.statusCode = statusCode;
+	}
 
-  public String getStatusMessage() {
-    return statusMessage;
-  }
+	public String getStatusMessage() {
+		return statusMessage;
+	}
 
-  public void setStatusMessage(String statusMessage) {
-    this.statusMessage = statusMessage;
-  }
+	public void setStatusMessage(String statusMessage) {
+		this.statusMessage = statusMessage;
+	}
 
 }

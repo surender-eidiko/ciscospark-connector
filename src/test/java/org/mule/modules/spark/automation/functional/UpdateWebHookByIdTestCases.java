@@ -25,7 +25,7 @@ public class UpdateWebHookByIdTestCases extends CiscoSparkAbstractTestCases {
 	public void testUpdateWebHookById() {
 		String webHooksId = getWebHooksId();
 		  WebhooksIdPutRequest webhookReq  = TestDataBuilder.getWebhooksIdPutRequest();
-		  WebhooksIdPutResponse webUpdate = getConnector().updateWebHooksById(webHooksId, webhookReq, null);
+		  WebhooksIdPutResponse webUpdate = getConnector().updateWebHooksById(webHooksId, webhookReq, null,null);
 		  assertNotNull(webUpdate);
 		  
 		  assertEquals("200", webUpdate.getStatusCode() );

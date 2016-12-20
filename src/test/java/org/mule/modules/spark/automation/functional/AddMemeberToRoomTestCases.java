@@ -27,7 +27,7 @@ public class AddMemeberToRoomTestCases extends CiscoSparkAbstractTestCases {
 	{
 		
 	      MembershipsPostRequest memberReqst = getMembershipsPostRequest();
-	      MembershipsPostResponse addMemeber = getConnector().addMemberToRoom(memberReqst, null);
+	      MembershipsPostResponse addMemeber = getConnector().addMemberToRoom(memberReqst, null,null);
 	      assertNotNull(addMemeber);
 	      assertEquals("200", addMemeber.getStatusCode() );
 	     

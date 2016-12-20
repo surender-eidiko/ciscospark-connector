@@ -83,9 +83,9 @@ public class SparkConnector {
 @Processor
   public MembershipsGetResponse getMemberships(@Optional String roomId,
     @Optional String personId, @Optional String personEmail,
-    @Optional Integer maxLimit, @Optional String token) {
+    @Optional Integer maxLimit, @Optional String token,@Optional String trackingID) {
     return getClient().getMemberships(roomId, personId, personEmail,
-      maxLimit, token);
+      maxLimit, token, trackingID);
   }
 
   /**
@@ -97,8 +97,8 @@ public class SparkConnector {
    */
 @Processor
   public MembershipsPostResponse addMemberToRoom(
-    MembershipsPostRequest membershipsPostRequest, @Optional String token) {
-    return getClient().addMemberToRoom(membershipsPostRequest,token);
+    MembershipsPostRequest membershipsPostRequest, @Optional String token,@Optional String trackingID) {
+    return getClient().addMemberToRoom(membershipsPostRequest,token,trackingID);
   }
 
   /**
@@ -109,8 +109,8 @@ public class SparkConnector {
    * @return MembershipsIdGetResponse
    */
 @Processor
-  public MembershipsIdGetResponse getMembershipById(String membershipId, @Optional String token) {
-    return getClient().getMembershipById(membershipId, token);
+  public MembershipsIdGetResponse getMembershipById(String membershipId, @Optional String token,@Optional String trackingID) {
+    return getClient().getMembershipById(membershipId, token,trackingID);
   }
 
   /**
@@ -123,9 +123,9 @@ public class SparkConnector {
    */
 @Processor
   public MembershipsIdPutResponse updateMembershipById(String membershipId,
-		  @Default("#[payload]") MembershipsIdPutRequest membershipsIdPutRequest,  @Optional String token) {
+		  @Default("#[payload]") MembershipsIdPutRequest membershipsIdPutRequest,  @Optional String token,@Optional String trackingID) {
     return getClient().updateMembershipById(membershipId,
-      membershipsIdPutRequest, token);
+      membershipsIdPutRequest, token,trackingID);
   }
 
   /**
@@ -136,8 +136,8 @@ public class SparkConnector {
    * @return StatusResponse Object
    */
 @Processor
-  public StatusResponse deleteMembershipById(String membershipId,  @Optional String token) {
-    return getClient().deleteMembershipById(membershipId, token);
+  public StatusResponse deleteMembershipById(String membershipId,  @Optional String token,@Optional String trackingID) {
+    return getClient().deleteMembershipById(membershipId, token,trackingID);
   }
 
   /**
@@ -153,8 +153,8 @@ public class SparkConnector {
 @Processor
   public MessagesGetResponse getMessages(String roomId,
     @Optional String before, @Optional String beforeMessage,
-    @Optional Integer maxLimit, @Optional String token) {
-    return getClient().getMessages(roomId, before, beforeMessage, maxLimit, token);
+    @Optional Integer maxLimit, @Optional String token,@Optional String trackingID) {
+    return getClient().getMessages(roomId, before, beforeMessage, maxLimit, token,trackingID);
   }
 
   /**This method Posts a new message and/or media content into a room.
@@ -164,8 +164,8 @@ public class SparkConnector {
    * @return MessagesPostResponse Object
    */
 @Processor
-  public MessagesPostResponse postMessages(@Default("#[payload]")MessagesPostRequest messagesPostRequest, @Optional String token) {
-    return getClient().postMessages(messagesPostRequest, token);
+  public MessagesPostResponse postMessages(@Default("#[payload]")MessagesPostRequest messagesPostRequest, @Optional String token,@Optional String trackingID) {
+    return getClient().postMessages(messagesPostRequest, token,trackingID);
   }
 
   /**
@@ -176,8 +176,8 @@ public class SparkConnector {
    * @return MessagesIdGetResponse Object
    */
 @Processor
-  public MessagesIdGetResponse getMessagesById(String messageId, @Optional String token) {
-    return getClient().getMessagesById(messageId, token);
+  public MessagesIdGetResponse getMessagesById(String messageId, @Optional String token,@Optional String trackingID) {
+    return getClient().getMessagesById(messageId, token,trackingID);
   }
 
   /**
@@ -188,8 +188,8 @@ public class SparkConnector {
    * @return StatusResponse Object
    */
 @Processor
-  public StatusResponse deleteMessagesById(String messageId,  @Optional String token) {
-    return getClient().deleteMessagesById(messageId, token);
+  public StatusResponse deleteMessagesById(String messageId,  @Optional String token,@Optional String trackingID) {
+    return getClient().deleteMessagesById(messageId, token,trackingID);
   }
 
   /**
@@ -203,8 +203,8 @@ public class SparkConnector {
    */
 @Processor
   public PeopleGetResponse getPeople(@Optional String email,
-    @Optional String displayName, @Optional Integer maxLimit, @Optional String token) {
-    return getClient().getPeople(email, displayName, maxLimit, token);
+    @Optional String displayName, @Optional Integer maxLimit, @Optional String token,@Optional String trackingID) {
+    return getClient().getPeople(email, displayName, maxLimit, token,trackingID);
   }
 
   /**
@@ -215,8 +215,8 @@ public class SparkConnector {
    * @return PeopleIdGetResponse Object
    */
 @Processor
-  public PeopleIdGetResponse getPeopleById(String uid, @Optional String token) {
-    return getClient().getPeopleById(uid, token);
+  public PeopleIdGetResponse getPeopleById(String uid, @Optional String token,@Optional String trackingID) {
+    return getClient().getPeopleById(uid, token,trackingID);
   }
 
 /**
@@ -226,8 +226,8 @@ public class SparkConnector {
  * @return the people detail
  */
 @Processor
-public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
-  return getClient().getPeopleDetail(token);
+public PeopleIdGetResponse getPeopleDetail(@Optional String token,@Optional String trackingID) {
+  return getClient().getPeopleDetail(token,trackingID);
 }
 
   /**
@@ -240,8 +240,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    */
 @Processor
   public RoomsGetResponse getRooms(@Optional String teamId,
-    @Optional Integer max,@Optional String type,@Optional Boolean sortByMostRecentlyActive, @Optional String token) {
-    return getClient().getRooms(teamId, max, type, sortByMostRecentlyActive, token);
+    @Optional Integer max,@Optional String type,@Optional Boolean sortByMostRecentlyActive, @Optional String token,@Optional String trackingID) {
+    return getClient().getRooms(teamId, max, type, sortByMostRecentlyActive, token,trackingID);
   }
 
   /**
@@ -251,8 +251,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    * @return RoomsPostResponse Object
    */
 @Processor
-  public RoomsPostResponse createRooms(RoomsPostRequest roomsPostRequest, @Optional String token) {
-    return getClient().createRooms(roomsPostRequest, token);
+  public RoomsPostResponse createRooms(RoomsPostRequest roomsPostRequest, @Optional String token,@Optional String trackingID) {
+    return getClient().createRooms(roomsPostRequest, token,trackingID);
   }
 
   /**
@@ -262,8 +262,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    * @return RoomsIdGetResponse Object
    */
 @Processor
-  public RoomsIdGetResponse getRoomById(String roomId, @Optional String token) {
-    return getClient().getRoomById(roomId, token);
+  public RoomsIdGetResponse getRoomById(String roomId, @Optional String token,@Optional String trackingID) {
+    return getClient().getRoomById(roomId, token,trackingID);
   }
 
   /**
@@ -275,8 +275,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    */
 @Processor
   public RoomsIdPutResponse updateRoomById(String roomId,
-		  @Default("#[payload]") RoomsIdPutRequest roomsIdPutRequest,  @Optional String token) {
-    return getClient().updateRoomById(roomId, roomsIdPutRequest, token);
+		  @Default("#[payload]") RoomsIdPutRequest roomsIdPutRequest,  @Optional String token,@Optional String trackingID) {
+    return getClient().updateRoomById(roomId, roomsIdPutRequest, token,trackingID);
   }
 
   /**
@@ -286,8 +286,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    * @return StatusResponse Object
    */
 @Processor
-  public StatusResponse deleteRoomById(String roomId, @Optional String token) {
-    return getClient().deleteRoomById(roomId, token);
+  public StatusResponse deleteRoomById(String roomId, @Optional String token,@Optional String trackingID) {
+    return getClient().deleteRoomById(roomId, token,trackingID);
   }
 
   /**
@@ -299,8 +299,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    */
 @Processor
   public SubscriptionsGetResponse getSubscriptions(@Default("#[payload]") String personId, 
-    @Optional Integer maxLimit, @Optional String token) {
-    return getClient().getSubscriptions(personId, maxLimit, token);
+    @Optional Integer maxLimit, @Optional String token,@Optional String trackingID) {
+    return getClient().getSubscriptions(personId, maxLimit, token,trackingID);
   }
 
   /**
@@ -310,13 +310,9 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    * @return SubscriptionsIdGetResponse Object
    */
 @Processor
-  public SubscriptionsIdGetResponse getSubscriptionsById(String subscriptionId, @Optional String token) {
-    return getClient().getSubscriptionsById(subscriptionId, token);
+  public SubscriptionsIdGetResponse getSubscriptionsById(String subscriptionId, @Optional String token,@Optional String trackingID) {
+    return getClient().getSubscriptionsById(subscriptionId, token,trackingID);
   }
-
- 
-
-
   /**
    * This method Returns a list of webhooks
    * {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:get-web-hooks}
@@ -324,8 +320,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    * @return WebhooksGetResponse Object
    */
 @Processor
-  public WebhooksGetResponse getWebHooks(@Optional Integer maxLimit, @Optional String token) {
-    return getClient().getWebHooks(maxLimit, token);
+  public WebhooksGetResponse getWebHooks(@Optional Integer maxLimit, @Optional String token,@Optional String trackingID) {
+    return getClient().getWebHooks(maxLimit, token,trackingID);
   }
 
   /**
@@ -336,8 +332,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    */
 @Processor
   public WebhooksPostResponse postWebHooks(
-    WebhooksPostRequest webhooksPostRequest, @Optional String token) {
-    return getClient().postWebHooks(webhooksPostRequest, token);
+    WebhooksPostRequest webhooksPostRequest, @Optional String token,@Optional String trackingID) {
+    return getClient().postWebHooks(webhooksPostRequest, token,trackingID);
   }
 
   /**
@@ -347,8 +343,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    * @return WebhooksIdGetResponse Object
    */
 @Processor
-  public WebhooksIdGetResponse getWebHooksById(String webHookUID, @Optional String token) {
-    return getClient().getWebHooksById(webHookUID, token);
+  public WebhooksIdGetResponse getWebHooksById(String webHookUID, @Optional String token,@Optional String trackingID) {
+    return getClient().getWebHooksById(webHookUID, token,trackingID);
   }
 
   /**
@@ -360,8 +356,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    */
 @Processor
   public WebhooksIdPutResponse updateWebHooksById(String webHookUID, @Default("#[payload]")
-    WebhooksIdPutRequest webhooksIdPutRequest,  @Optional String token) {
-    return getClient().updateWebHooksById(webHookUID, webhooksIdPutRequest, token);
+    WebhooksIdPutRequest webhooksIdPutRequest,  @Optional String token,@Optional String trackingID) {
+    return getClient().updateWebHooksById(webHookUID, webhooksIdPutRequest, token,trackingID);
   }
 
   /**
@@ -371,8 +367,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token) {
    * @return StatusResponse Object
    */
 @Processor
-  public StatusResponse deleteWebHooksById(String webHookUID, @Optional String token) {
-    return getClient().deleteWebHooksById(webHookUID, token);
+  public StatusResponse deleteWebHooksById(String webHookUID, @Optional String token,@Optional String trackingID) {
+    return getClient().deleteWebHooksById(webHookUID, token,trackingID);
   }
 
   

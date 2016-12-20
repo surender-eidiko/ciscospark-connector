@@ -29,7 +29,7 @@ public class UpdateRoomByIdTestCases extends CiscoSparkAbstractTestCases {
 		String id = getRoomId();
 		
 		RoomsIdPutRequest updateRoom = TestDataBuilder.getRoomsIdPutRequest();
-	     RoomsIdPutResponse updateResponse= getConnector().updateRoomById(id,updateRoom, null);
+	     RoomsIdPutResponse updateResponse= getConnector().updateRoomById(id,updateRoom, null,null);
 	      assertNotNull(updateResponse);
 	     
 	      assertEquals("200", updateResponse.getStatusCode() );
