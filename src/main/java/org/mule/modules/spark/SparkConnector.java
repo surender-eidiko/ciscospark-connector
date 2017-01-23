@@ -240,8 +240,8 @@ public PeopleIdGetResponse getPeopleDetail(@Optional String token,@Optional Stri
    */
 @Processor
   public RoomsGetResponse getRooms(@Optional String teamId,
-    @Optional Integer max,@Optional String type,@Optional Boolean sortByMostRecentlyActive, @Optional String token,@Optional String trackingID) {
-    return getClient().getRooms(teamId, max, type, sortByMostRecentlyActive, token,trackingID);
+    @Optional Integer max,@Optional String type,@Optional Boolean sortByMostRecentlyActive,@Optional String sortBy, @Optional String token,@Optional String trackingID) {
+    return getClient().getRooms(teamId, max, type, sortByMostRecentlyActive, sortBy, token,trackingID);
   }
 
   /**

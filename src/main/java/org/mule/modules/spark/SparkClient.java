@@ -213,22 +213,16 @@ public class SparkClient {
 	}
 
 	public RoomsGetResponse getRooms(String teamId, Integer max, String type,
-			Boolean sortByMostRecentlyActive, String token,String trackingID) {
+			Boolean sortByMostRecentlyActive,String sortBy, String token,String trackingID) {
 		WebResource webResource = getApiResource().path("rooms");
 		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		if (teamId != null) {
-			queryParams.add("teamId", teamId);
-		}
-		if (type != null) {
-			queryParams.add("type", type);
-		}
-		if (max != null) {
-			queryParams.add("max", String.valueOf(max));
-		}
-		if (sortByMostRecentlyActive != null) {
-			queryParams.add("sortByMostRecentlyActive",
-					String.valueOf(sortByMostRecentlyActive));
-		}
+		if (teamId != null) queryParams.add("teamId", teamId);
+		if (type != null)queryParams.add("type", type);
+		if (max != null) queryParams.add("max", String.valueOf(max));
+		if (sortByMostRecentlyActive != null) queryParams.add("sortByMostRecentlyActive",String.valueOf(sortByMostRecentlyActive));
+		if(sortBy != null && !"".equals(sortBy))  queryParams.add("sortBy",sortBy);
+			
+			
 		webResource = webResource.queryParams(queryParams);
 		return (RoomsGetResponse) getData(webResource, RoomsGetResponse.class,
 				token,trackingID);
@@ -463,5 +457,6 @@ public class SparkClient {
 	public void setConnector(SparkConnector connector) {
 		this.connector = connector;
 	}
+
 
 }
