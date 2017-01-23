@@ -4,6 +4,7 @@
 package org.mule.modules.spark;
 
 import java.lang.reflect.Constructor;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,6 +26,7 @@ import org.mule.modules.spark.bean.PeopleGetResponse;
 import org.mule.modules.spark.bean.PeopleIdGetResponse;
 import org.mule.modules.spark.bean.PostMessagePropertiesBean;
 import org.mule.modules.spark.bean.RoomsGetResponse;
+import org.mule.modules.spark.bean.RoomsGetResponseItem;
 import org.mule.modules.spark.bean.RoomsIdGetResponse;
 import org.mule.modules.spark.bean.RoomsIdPutRequest;
 import org.mule.modules.spark.bean.RoomsIdPutResponse;
@@ -221,8 +223,6 @@ public class SparkClient {
 		if (max != null) queryParams.add("max", String.valueOf(max));
 		if (sortByMostRecentlyActive != null) queryParams.add("sortByMostRecentlyActive",String.valueOf(sortByMostRecentlyActive));
 		if(sortBy != null && !"".equals(sortBy))  queryParams.add("sortBy",sortBy);
-			
-			
 		webResource = webResource.queryParams(queryParams);
 		return (RoomsGetResponse) getData(webResource, RoomsGetResponse.class,
 				token,trackingID);

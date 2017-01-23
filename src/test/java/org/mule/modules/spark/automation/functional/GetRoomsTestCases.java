@@ -26,7 +26,6 @@ public class GetRoomsTestCases extends CiscoSparkAbstractTestCases {
 	{
 	    RoomsGetResponse rooms = getConnector().getRooms(null, null, null, null, "id", null, null); 
 		assertNotNull(rooms);
-		//System.out.println("response "+rooms.toString());
 	    assertEquals("200",rooms.getStatusCode());
 	}
 

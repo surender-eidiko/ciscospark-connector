@@ -39,6 +39,45 @@ public class RoomsGetResponseItem {
   
   private String lastActivity;
   
+  private String type;
+  
+  private String isLocked;
+  
+  private String creatorId;
+  
+  public String getType() {
+	return type;
+}
+
+public void setType(String type) {
+	this.type = type;
+}
+
+public String getIsLocked() {
+	return isLocked;
+}
+
+public void setIsLocked(String isLocked) {
+	this.isLocked = isLocked;
+}
+
+public String getCreatorId() {
+	return creatorId;
+}
+
+public void setCreatorId(String creatorId) {
+	this.creatorId = creatorId;
+}
+
+public String getTeamId() {
+	return teamId;
+}
+
+public void setTeamId(String teamId) {
+	this.teamId = teamId;
+}
+
+private String teamId;
   
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
